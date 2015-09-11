@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name">C.A.T Art</string>
+
+    <string name="oneTimeSetupString">One Time Setup: Copying art to your local memory</string> 
+    <string name="bluetoothPairingString">Did you Bluetooth pair to your C.A.T Device? Pairing PIN: 0000"</string>   
+    <string name="menu_camera_title">Camera Pic to C.A.T Device</string>  
+    <string name="menu_about_title">About</string> 
+    <string name="menu_about_summary">Designed by Creative Arts and Technology LLC\n\nWeb: c-a-t.co</string>
+    <string name="versionString">App Version</string> 
+    <string name="BootloaderVersionString">Bootloader Version</string> 
+    <string name="FirmwareVersionString">Firmware Version</string> 
+    <string name="LibraryVersionString">Library Version</string> 
+    <string name="HardwareVersionString">Hardware Version</string> 
+   
+    <string name="menu_instructions_title">Instructions</string>
+    <string name="setupInstructionsString">Bluetooth pair to the C.A.T Device using PIN 0000\n\nLong tap to write to C.A.T Device for stand alone operation.\n\nAdd your own art by sharing to this app from email, gallery, and other apps.\n\nUse the menu to create a slide show of favorites.</string>
+    <string name="setupInstructionsStringTitle">Instructions</string>   
+     
+    <string name="prefTitle">C.A.T Device Settings</string>
+    <string name="menu_prefs_title">Settings</string>
+    <string name="prefSummary">C.A.T Device Settings</string>
+    
+    <string name="scanAll">Show All Album Pics</string>
+    <string name="pref_scanAll_default">false</string>
+    <string name="scanAllSummary">Only animations in the pixel/GIFs directory of your SD card will be displayed. Checking this box displays all SD card pictures.</string>
+        
+    <string name="whatsNewTitle">Welcome</string>   
+    <string name="whatsNewText">First Bluetooth pair to your C.A.T Device using PIN 0000\n\nTap any image to display or long tap to write\n\nThe last item you write will continue to play after your phone has been disconnected</string>   
+    
+    <string name="OKText">OK</string>   
+    <string name="notFoundString">C.A.T. Device Not Found</string>   
+    
+    <string name="menu_getART_title">Pixel Art on the Web</string>   
+    <string name="menu_pixelJoint_title">Pixel Art on the Web</string>   
+    <string name="artURL1">pixeljoint.com</string>   
+    <string name="artURL2">pixeljoint.com</string> 
+    <string name="artURL3">pixeljoint.com</string> 
+    
+    <string name="menu_btPair_title">Bluetooth Pair C.A.T Device | PIN 0000</string>   
+   
+    <string name="selected_matrix">selected_matrix</string>
+    <string name="matrix">C.A.T Device Model</string>
+    <string name="matrixSummary">Choose between the rectangle or square model</string>    
+    <string name="dialogTitleMatrix">C.A.T Device Model</string>
+    <string name="matrix_default_value">1</string>   
+    
+    <string name="slideshowGIFFPS_key">slideshowGIFFPS_key</string>
+    <string name="slideshowGIFFPS_title">GIF Slide Show FPS</string>
+    <string name="slideshowGIFFPS_Summary">Frame rate (frames per second) for the GIF slide show</string>    
+    <string name="slideshowGIFFPS_dialogTitle">GIF Slide Show FPS</string>
+    <string name="slideshowGIFFPS_default_value">4</string>  
+    
+    <string name="fps_override">fps_override</string>
+    <string name="FPSOverrideTitle">Frames per Second</string>
+    <string name="FPSOverrideSummary">Normally you would not need to change this, only if you want to override the frames per second of the animations. Restart app after changing.</string>    
+    <string name="dialogTitleFPSOverride">Frames per Second</string>
+    <string name="FPSOverrideDefault">0</string>  
+    
+    <string name="bluetooth_pair">Blueooth Pairing</string>
+    <string name="bluetooth_pairSummary">Shortcut to the Bluetooth settings screen. Pair to C.A.T Device using PIN: 0000</string>
+    
+    <string name="slideShowtitle">Slide Show Settings</string>
+    <string name="slideShowtitleSummary">Slide Show Settings</string>
+   
+    <string name="slideShowMode">Slide Show Mode</string>    
+    <string name="slideShowModeDefault">false</string>
+    <string name="slideShowModeSummary">Slide Show Mode</string>
+    
+    <string name="noSleep">Disable Power Savings</string>    
+    <string name="pref_noSleepDefault">false</string>
+    <string name="noSleepSummary">Forces the app to be always on, your device will not go into power savings mode while this app is running. Good if using as a Kiosk for example. </string>
+       
+    <string name="kioskMode">Kiosk Mode</string>    
+    <string name="pref_kioskMode">pref_kioskMode</string>
+    <string name="pref_kioskModeDefault">false</string>    
+    <string name="kioskModeSummary">Writing to C.A.T Device is disabled</string>
+    
+    <string name="gifonly">GIFs Only</string>    
+    <string name="pref_gifonly">pref_gifonly</string>
+    <string name="pref_gifonlyDefault">false</string>    
+    <string name="gifonlySummary">Only show GIFs</string>
+    
+    <string name="writeCamera">Save Mutliple Camera Pictures</string>    
+    <string name="pref_writeCamera">pref_writeCamera</string>
+    <string name="writeCameraDefault">true</string>    
+    <string name="writeCameraSummary">Saves multiple camera pictures to this app vs. overwriting just one</string>
+    
+    <string name="only64">64x64 Content Only</string>    
+    <string name="pref_only64">pref_only64</string>
+    <string name="pref_only64Default">false</string>    
+    <string name="pref_only64Summary">Only show 64x64 and user added content</string>
+    
+    <string name="showStartupMsg">Show Startup Message</string>    
+    <string name="pref_showStartupMsg">pref_showStartupMsg</string>
+    <string name="showStartupMsgDefault">true</string>    
+    <string name="showStartupMsgSummary"></string>
+    
+    <string name="downloadURL_32">Download URL 32x32</string>    
+    <string name="pref_downloadURL_32">pref_downloadURL_32</string>
+    <string name="downloadURL_32Default">"www.pixeljoint.com/pixels/new_icons.asp?search=&amp;dimo=%3D&amp;dim=32&amp;colorso=%3E%3D&amp;colors=2&amp;tran=&amp;anim=&amp;iso=&amp;av=&amp;owner=&amp;d=&amp;dosearch=1&amp;ob=search&amp;action=search"</string>    
+    <string name="downloadURL_32Summary">URL for 32x32 pixel art, do not include http:Slash:/Slash:/</string>
+    
+    <string name="downloadURL_64">Download URL 64x64</string>    
+    <string name="pref_downloadURL_64">pref_downloadURL_64</string>
+    <string name="downloadURL_64Default">www.pixeljoint.com/pixels/new_icons.asp?search=&amp;dimo=%3D&amp;dim=64&amp;colorso=%3E%3D&amp;colors=2&amp;tran=&amp;anim=&amp;iso=&amp;av=&amp;owner=&amp;d=&amp;dosearch=1&amp;ob=search&amp;action=search</string>    
+    <string name="downloadURL_64Summary">URL for 64x64 pixel art, do not include http:Slash:/Slash:/</string>
+    
+    <string name="StartupMessage">Short tap to stream or long tap to write</string>
+    
+    <string name="menu_rescan_title">Rescan</string>
+    <string name="rescan_screen_verbage">Now scanning your SD card or internal memory for new animations or deletions, just a moment&#8230;</string>
+    
+    <string name="menu_galleryPickTitle">Select from Gallery</string>
+    <string name="select_picture">Select Picture</string>
+    
+    <string name="startup_verbage_1">Initial Setup</string>
+    <string name="startup_verbage_2">Copying animations to your local storage&#8230;</string>
+    <string name="firstTime_instructions"></string>
+  
+    <string name="imageDisplayDuration">Image Display Duration</string>    
+    <string name="pref_imageDisplayDuration">pref_imageDisplayDuration</string>
+    <string name="imageDisplayDurationDefault">5</string>
+    <string name="imageDisplayDurationSummary">Number of seconds each image is displayed</string>
+    
+    <string name="pauseBetweenImagesDuration">Pause Between Images</string>    
+    <string name="pref_pauseBetweenImagesDuration">pref_pauseBetweenImagesDuration</string>
+    <string name="pauseBetweenImagesDurationDefault">3</string>
+    <string name="pauseBetweenImagesDurationSummary">Number of seconds to pause in between images</string>
+    
+    <string name="menu_refreshArt_title">Force Stock Art Refresh</string>
+    
+    <string name="menu_refresh_title">Force Stock Art Refresh</string>
+    <string name="menu_refresh_summary">Please now restart this app</string>
+    
+    <string name="stopSlideShowMessage">You are still in slide show mode, swipe from right to left to end the slide show and then you can select a single image</string>
+    <string name="loadingImagesPlsWaitTitle">Please Wait</string>
+    <string name="loadingImagesPlsWait">Loading images, just a moment&#8230;</string>
+    
+    <string name="slideShowStopInstructions">Swipe from right to left to stop the Slide Show</string>
+    <string name="slideShowStartVerbage">Starting Slide Show&#8230;</string>
+    <string name="slideShowStopVerbage">Slide Show Stopped</string>    
+    <string name="slideShowStartInstructions">Tap to display a single image or Swipe from left to right to start a Slide Show</string>
+    
+    <string name="slideShowAllPNGs">Include All PNGs in Slide Show</string>    
+    <string name="pref_slideShowAllPNGs">pref_slideShowAllPNGs</string>
+    <string name="pref_slideShowAllPNGsDefault">false</string>
+    <string name="slideShowAllPNGsSummary">The slide show will include only favorites (if you have marked favorites). Check here to include all PNGs in the slide show regardless of favorites.</string>
+    
+    <string name="menu_startSlideShow_title">Slide Show</string>
+    <string name="menu_stopSlideShow_title">Stop Slide Show</string>
+    
+    <string name="debugMode">Debug Mode</string>    
+    <string name="pref_debugMode">pref_debugMode</string>
+    <string name="pref_debugModeDefault">false</string>    
+    <string name="debugModeSummary">Displays debug messages, use to see how often the Bluetooth connections are getting disconnected and connected as well as other debug messages</string>
+    
+    <string name="StartInstructions">Tap to Animate</string>
+    
+ 	<string name="oneTimeCopyTitle">Initial Setup</string> 
+    <string name="oneTimeCopyMessage">Do not interrupt or leave this screen.</string> 
+    
+    <string name="LongTapActionTitle">Select Action</string> 
+    <string name="LongTapActionWrite">Write</string> 
+   
+    <string name="cannotWriteMsg">Sorry, writing is only supported on C.A.T Device V2 and above, streaming instead&#8230;</string> 
+    <string name="FavoriteText">Favorite</string> 
+    <string name="UnFavoriteText">Unfavorite</string> 
+    <string name="MovingUp">Moving Up</string> 
+    <string name="MovingDown">Moving Down</string> 
+    <string name="AreYouSure">Are You Sure?</string> 
+    <string name="Yes">Yes</string> 
+    <string name="Delete">Delete</string> 
+    <string name="Cancel">Cancel</string> 
+    <string name="DoNotInterrupt">Please do not interrupt or leave this screen.</string> 
+    <string name="oneTimeDecode">One time decode in process, just a moment&#8230;</string> 
+    <string name="writingPIXEL">Writing to C.A.T Device</string> 
+    <string name="PIXELNotFound">C.A.T device not found, did you Bluetooth pair?</string> 
+    <string name="NoWritinginKiosk">Writing to your C.A.T Device is not supported in Kiosk mode</string> 
+    <string name="ProcessingFavorite">Processing Favorite</string> 
+    <string name="LEDPanelChanged">LED panel model was changed, decoding again&#8230;</string> 
+    <string name="NoFavoritesMarked">You have not marked any favorites, long tap to mark a favorite</string> 
+    <string name="WritingOnlyOnV2">Sorry, writing is only supported on C.A.T Device V2 and higher</string>
+   
+    <string name="menu_createSlideShow_title">Write All Images Slide Show</string>
+    <string name="menu_createSlideShowFavs_title">Write Favorite Images Slide Show</string>
+   
+    <string name="BluetoothPairInstructionsV1">Bluetooth Pair to C.A.T Device using PIN: 4545</string> 
+    <string name="BluetoothPairInstructionsV2">Bluetooth Pair to C.A.T Device using PIN: 0000</string> 
+   
+    <string name="PreparingSlideshow">Preparing Slide Show</string> 
+    <string name="WritingSlideshow">Writing Slide Show to C.A.T Device</string> 
+    <string name="WritingSlideshowGIF">Writing Slide Show GIF to C.A.T Device</string> 
+
+    <string name="menu_createSlideShowGIFFavs_title">Write Favorite GIFs Slide Show</string> 
+    
+    <string name="text_paused_cellular">Would you like to enable downloading over cellular connections? Depending on your data plan, this may cost you money.</string>
+    <string name="text_paused_cellular_2">If you choose not to enable downloading over cellular connections, the download will automatically resume when wi-fi is available.</string>
+    <string name="text_button_resume_cellular">Resume download</string>
+    <string name="text_button_wifi_settings">Wi-Fi settings</string>
+    <string name="text_verifying_download">Verifying Download</string>
+    <string name="text_validation_complete">Pixel Art Download Validation Complete.  Select OK to continue.</string>
+    <string name="text_validation_failed">Download File Validation Failed.</string>
+    <string name="text_button_pause">Pause Download</string>
+    <string name="text_button_resume">Resume Download</string>
+    <string name="text_button_cancel">Cancel</string>
+    <string name="text_button_cancel_verify">Cancel Verification</string>
+    
+    <string name="AutoSelectPanel">Auto Select C.A.T Device</string>    
+    <string name="pref_AutoSelectPanel">pref_AutoSelectPanel</string>
+    <string name="pref_AutoSelectPanelDefault">true</string>
+    <string name="AutoSelectPanelSummary">Turn this off if you want to manually select the LED panel</string>
+    
+    <string name="DisableNewArtCheck">Disable New Art Check</string>    
+    <string name="pref_DisableNewArtCheck">pref_DisableNewArtCheck</string>
+    <string name="pref_DisableNewArtCheckDefault">true</string>
+    <string name="DisableNewArtCheckSummary">Disables checking for new art on startup. IMPORTANT: You must upgrade the app first to obtain any new art.</string>
+    
+    <string name="gridSize">gridSize</string>
+    <string name="gridSizeTitle">Image Grid Size</string>
+    <string name="gridSizeSummary">Choose smaller for less vertical scrolling but with smaller image sizes</string>    
+    <string name="dialogTitlegridSize">Image Grid Size</string>
+    <string name="gridSizeDefault">2</string>  
+    
+    <string name="unsupportedPanel">Incompatible LED Panel</string>    
+    <string name="unsupportedPanelMsg">Very Sorry&#8230;\n\nThe LED Panel you have selected is not compatible with your C.A.T Device board.\n\nYou would need to upgrade to a C.A.T Device v2.5 or higher board to support this LED panel\n\nPlease now change the LED panel to a supported one.</string>
+    
+    <string name="newFileAdded">New File Added</string>    
+    <string name="newFilesAdded">New Files Added</string>   
+    <string name="newArtAdded">New Art Added</string>    
+    
+    <string name="noFreeSpace">Not Enough Free Space</string>    
+    <string name="noFreeSpaceMsg">Sorry you do not have enough free space on your SD card storage for the new pixel art</string>    
+    
+    
+    
+   
+</resources>

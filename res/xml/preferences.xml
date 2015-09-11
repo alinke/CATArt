@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This file is /res/xml/mypreferences.xml -->
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="flight_option_preference"
+    android:title="@string/prefTitle"
+    android:summary="@string/prefSummary">
+ 
+ 
+ <PreferenceScreen 
+    android:title="@string/bluetooth_pair"
+    android:summary="@string/bluetooth_pairSummary">
+   <intent android:action="android.settings.BLUETOOTH_SETTINGS">
+   </intent>
+   </PreferenceScreen>
+   
+   <!--  <CheckBoxPreference
+    android:title="@string/scanAll"
+    android:key="pref_scanAll"
+    android:defaultValue="@string/pref_scanAll_default"
+    android:summary="@string/scanAllSummary"/>-->
+    
+    <CheckBoxPreference
+    android:title="@string/AutoSelectPanel"
+    android:key="pref_AutoSelectPanel"
+    android:defaultValue="@string/pref_AutoSelectPanelDefault"
+    android:summary="@string/AutoSelectPanelSummary"/>
+    
+    <CheckBoxPreference
+    android:title="@string/DisableNewArtCheck"
+    android:key="pref_DisableNewArtCheck"
+    android:defaultValue="@string/pref_DisableNewArtCheckDefault"
+    android:summary="@string/DisableNewArtCheckSummary"/>
+    
+     
+    <ListPreference
+    android:key="@string/selected_matrix"
+    android:title="@string/matrix"
+    android:summary="@string/matrixSummary"
+    android:entries="@array/matrix_options"
+    android:entryValues="@array/matrix_values"
+    android:dialogTitle="@string/dialogTitleMatrix"
+    android:defaultValue="@string/matrix_default_value" />
+    
+    <ListPreference
+    android:key="@string/gridSize"
+    android:title="@string/gridSizeTitle"
+    android:summary="@string/gridSizeSummary"
+    android:entries="@array/GridSize_options"
+    android:entryValues="@array/GridSize_values"
+    android:dialogTitle="@string/dialogTitlegridSize"
+    android:defaultValue="@string/gridSizeDefault" />
+     
+    
+    <CheckBoxPreference
+    android:title="@string/noSleep"
+    android:key="pref_noSleep"
+    android:defaultValue="@string/pref_noSleepDefault"
+    android:summary="@string/noSleepSummary"/>
+    
+      <PreferenceCategory
+    android:title="@string/slideShowtitle"  
+    android:summary="@string/slideShowtitleSummary">        
+  <!--   <CheckBoxPreference
+    android:title="@string/slideShowMode"
+    android:key="pref_slideshowMode"   
+    android:defaultValue="@string/slideShowModeDefault" 
+    android:summary="@string/slideShowModeSummary"/>-->
+        
+        <EditTextPreference
+	    android:title="@string/imageDisplayDuration"
+	    android:key="@string/pref_imageDisplayDuration"
+	    android:numeric="integer"
+	    android:maxLength="3"
+	    android:defaultValue="@string/imageDisplayDurationDefault"
+	    android:summary="@string/imageDisplayDurationSummary"/>
+	      <EditTextPreference
+	    android:title="@string/pauseBetweenImagesDuration"
+	    android:key="@string/pref_pauseBetweenImagesDuration"
+	    android:numeric="integer"
+	    android:maxLength="3"
+	    android:defaultValue="@string/pauseBetweenImagesDurationDefault"
+	    android:summary="@string/pauseBetweenImagesDurationSummary"/>
+	      
+	    <ListPreference
+	    android:key="@string/slideshowGIFFPS_key"
+	    android:title="@string/slideshowGIFFPS_title"
+	    android:summary="@string/slideshowGIFFPS_Summary"
+	    android:entries="@array/FPSOverride_options"
+	    android:entryValues="@array/FPSOverride_values"
+	    android:dialogTitle="@string/slideshowGIFFPS_dialogTitle"
+	    android:defaultValue="@string/slideshowGIFFPS_default_value" />
+	      
+	      
+	      
+	      
+	      
+	 <!--     <CheckBoxPreference
+	    android:title="@string/slideShowAllPNGs"
+	    android:key="pref_slideShowAllPNGs"
+	    android:defaultValue="@string/pref_slideShowAllPNGsDefault"
+	    android:summary="@string/slideShowAllPNGsSummary"/> -->
+	   
+   <!--  <CheckBoxPreference
+    android:title="@string/dimDuringSlideShow"
+    android:key="pref_dimDuringSlideShow"
+    android:defaultValue="@string/dimDuringSlideShowDefault"
+    android:summary="@string/dimDuringSlideShowSummary"/> -->
+	      	      
+    </PreferenceCategory>
+    
+     <!--
+    <CheckBoxPreference
+    android:title="@string/kioskMode"
+    android:key="pref_kioskMode"
+    android:defaultValue="@string/pref_kioskModeDefault"
+    android:summary="@string/kioskModeSummary"/> -->
+    
+    <CheckBoxPreference
+    android:title="@string/gifonly"
+    android:key="pref_gifonly"
+    android:defaultValue="@string/pref_gifonlyDefault"
+    android:summary="@string/gifonlySummary"/>
+    
+    <!--
+    <CheckBoxPreference
+    android:title="@string/only64"
+    android:key="pref_only64"
+    android:defaultValue="@string/pref_only64Default"
+    android:summary="@string/pref_only64Summary"/> -->
+    
+    <CheckBoxPreference
+    android:title="@string/showStartupMsg"
+    android:key="pref_showStartupMsg"
+    android:defaultValue="@string/showStartupMsgDefault"
+    android:summary="@string/showStartupMsgSummary"/>
+    
+      <!-- <CheckBoxPreference
+    android:title="Call Taxi"
+    android:key="pref_taxi"
+    android:summary="Call Taxi when Tipsy or Drunk"/>
+   
+     <ListPreference
+    android:key="@string/fps_override"
+    android:title="@string/FPSOverrideTitle"
+    android:summary="@string/FPSOverrideSummary"
+    android:entries="@array/FPSOverride_options"
+    android:entryValues="@array/FPSOverride_values"
+    android:dialogTitle="@string/dialogTitleFPSOverride"
+    android:defaultValue="@string/FPSOverrideDefault" />  -->
+    
+        
+ 
+    
+    
+  
+    
+    
+    <CheckBoxPreference
+    android:title="@string/debugMode"
+    android:key="pref_debugMode"
+    android:defaultValue="@string/pref_debugModeDefault"
+    android:summary="@string/debugModeSummary"/>  
+    
+    <CheckBoxPreference
+    android:title="@string/writeCamera"
+    android:key="pref_writeCamera"
+    android:defaultValue="@string/writeCameraDefault"
+    android:summary="@string/writeCameraSummary"/>  
+    
+    <!--
+    <EditTextPreference
+	    android:title="@string/downloadURL_32"
+	    android:key="@string/pref_downloadURL_32"
+	    android:defaultValue="@string/downloadURL_32Default"
+	    android:summary="@string/downloadURL_32Summary"/>
+    
+    <EditTextPreference
+	    android:title="@string/downloadURL_64"
+	    android:key="@string/pref_downloadURL_64"
+	    android:defaultValue="@string/downloadURL_64Default"
+	    android:summary="@string/downloadURL_64Summary"/>
+  -->
+    
+     
+   </PreferenceScreen>

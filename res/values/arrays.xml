@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+	
+<string-array name="matrix_options">
+    <item>Do not pick</item>
+    <item>C.A.T LED Clutch</item>
+    <item>Do not pick</item>
+    <item>Do not pick</item>
+    <item>Do not pick</item>
+    <item>Do not pick</item>
+    <item>Do not pick</item>
+    <item>Do not pick</item>
+    <item>Do not pick</item>
+    <item>Do not pick</item>
+    <item>Do not pick</item>
+    <item>C.A.T LED Squae</item>
+    <item>Do not pick</item>
+    <item>Do not pick4</item>
+    <item>Do not pick</item>
+    <item>Do not pick</item>
+</string-array>
+	
+<string-array name="matrix_values">
+    <item>0</item>
+    <item>1</item>
+    <item>2</item>
+    <item>3</item>
+    <item>4</item>
+    <item>5</item>
+    <item>6</item>
+    <item>8</item>
+    <item>9</item>
+    <item>10</item>
+    <item>11</item>
+    <item>12</item>
+    <item>13</item>
+    <item>14</item>
+    <item>15</item>
+    <item>16</item>
+</string-array>
+
+  <string-array name="FPSOverride_options">
+    <item>1</item>
+    <item>2</item>
+    <item>5</item>
+    <item>7</item>
+    <item>10</item>
+    <item>15</item>
+    <item>16</item>
+    <item>24</item>
+    <item>30</item>
+	</string-array>
+	
+<string-array name="FPSOverride_values">
+    <item>0</item>
+    <item>1</item>
+    <item>2</item>
+    <item>3</item>
+    <item>4</item>
+    <item>5</item>
+    <item>6</item>
+    <item>7</item>
+    <item>8</item>
+</string-array>
+
+  <string-array name="GridSize_options">
+    <item>Normal</item>
+    <item>Smaller</item>
+    <item>Smallest</item>
+	</string-array>
+	
+<string-array name="GridSize_values">
+    <item>1</item>
+    <item>2</item>
+    <item>3</item>
+</string-array>
+
+
+</resources>
+

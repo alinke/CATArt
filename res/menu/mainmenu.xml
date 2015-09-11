@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This file is /res/menu/mainmenu.xml -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    
+
+ 
+
+<item android:id="@+id/menu_createSlideShowGIFFavs"
+android:title="@string/menu_createSlideShowGIFFavs_title"
+android:icon="@drawable/ic_action_add_to_queue"
+/>
+
+<item android:id="@+id/menu_createSlideShowFavs"
+android:title="@string/menu_createSlideShowFavs_title"
+android:icon="@drawable/ic_action_new_picture"
+/>
+
+
+
+
+<item android:id="@+id/menu_refreshArt"
+android:title="@string/menu_refreshArt_title"
+android:icon="@drawable/ic_action_refresh"
+/>
+
+
+
+
+    
+<item android:id="@+id/menu_btPair"
+android:title="@string/menu_btPair_title"
+android:icon="@drawable/ic_action_bluetooth"
+android:showAsAction="always"
+/>
+
+<item android:id="@+id/menu_camera"
+android:title="@string/menu_camera_title"
+android:icon="@drawable/ic_action_camera"
+android:showAsAction="always"
+/>
+
+<item android:id="@+id/stop_SlideShow"
+android:title="@string/menu_stopSlideShow_title"
+android:icon="@drawable/ic_action_stop"
+  android:showAsAction="always"
+/>
+
+
+
+
+<item android:id="@+id/menu_prefs"
+android:title="@string/menu_prefs_title"
+    android:icon="@drawable/ic_action_settings"
+    android:showAsAction="always"
+/>
+
+
+<item android:id="@+id/menu_about"
+android:title="@string/menu_about_title"
+android:icon="@drawable/ic_menu_info_details"
+/>
+
+<item android:id="@+id/menu_instructions"
+android:title="@string/menu_instructions_title"
+android:icon="@drawable/ic_menu_database"
+/>
+
+
+
+
+
+
+ <!--
+<item android:id="@+id/menu_galleryPick"
+android:title="@string/menu_galleryPickTitle"
+android:icon="@drawable/ic_menu_database"
+/>-->
+
+  <!--
+<item android:id="@+id/menu_rescan"
+android:title="@string/menu_rescan_title"
+android:icon="@drawable/ic_menu_database"
+/> had to remove this as it was causing a crash on Android 4.x-->
+
+</menu>
