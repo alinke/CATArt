@@ -6,7 +6,7 @@
     <string name="bluetoothPairingString">Did you Bluetooth pair to your C.A.T Device? Pairing PIN: 0000"</string>   
     <string name="menu_camera_title">Camera Pic to C.A.T Device</string>  
     <string name="menu_about_title">About</string> 
-    <string name="menu_about_summary">Designed by Creative Arts and Technology LLC\n\nWeb: c-a-t.co</string>
+    <string name="menu_about_summary">Designed by Creative Arts and Technology LLC\n\nWeb: catclutch.com</string>
     <string name="versionString">App Version</string> 
     <string name="BootloaderVersionString">Bootloader Version</string> 
     <string name="FirmwareVersionString">Firmware Version</string> 
