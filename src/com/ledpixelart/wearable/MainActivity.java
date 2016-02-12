@@ -5917,17 +5917,6 @@ public class AsyncRefreshArt extends AsyncTask<Void, String, Void> {
 					canvas.drawBitmap(bitmap, 0, 0, null);
 				}
 			}
-			
-		
-     		//we're done with the images so let's recycle them to save memory
-    	   // canvasBitmap.recycle();
-    	 //  bitmap.recycle(); 
-    	    
-    	  //if ( resizedFlag == 1) {
-    	    //	IOIOBitmap.recycle(); //only there if we had to resize an image
-    	 // }
-			
-		   
 		}
 		
 		/*public void writeFile(byte[] data, String fileName) throws IOException{
