@@ -86,22 +86,30 @@ public class ListAdapter extends BaseAdapter {
 
 		if (convertView == null) {
 			img = new ImageView(context);
-			img.setScaleType(ImageView.ScaleType.CENTER_CROP);
+			//img.setScaleType(ImageView.ScaleType.CENTER_CROP);  //****** this was the key line causing the thumbnails to scale and center crop
 			img.setLayoutParams(new GridView.LayoutParams(
 					LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
 			
 			// imageView = new ImageView(mContext);
 			
-			if (MainActivity.targetScreenResolution < 481) { //the small screen can't take the larger icons
+			/*if (MainActivity.targetScreenResolution < 481) { //the small screen can't take the larger icons
 				img.setLayoutParams(new GridView.LayoutParams(128/MainActivity.gridScale,128/MainActivity.gridScale)); 
 			}
 			else {
 				img.setLayoutParams(new GridView.LayoutParams(256/MainActivity.gridScale,256/MainActivity.gridScale)); //256,256
+			}*/
+			
+			if (MainActivity.targetScreenResolution < 481) { //the small screen can't take the larger icons
+				img.setLayoutParams(new GridView.LayoutParams(128/MainActivity.gridScale,64/MainActivity.gridScale)); 
+			}
+			else {
+				img.setLayoutParams(new GridView.LayoutParams(256/MainActivity.gridScale,128/MainActivity.gridScale)); //256,256
 			}
 			
-	    	   // img.setLayoutParams(new GridView.LayoutParams(128,128)); //this used to be 256, 256 which explains why the grids were too small for the 128 sizes images
-	    	img.setScaleType(ImageView.ScaleType.CENTER_CROP);
-	    	img.setPadding(1, 1, 1, 1);
+	    	// img.setLayoutParams(new GridView.LayoutParams(128,128)); //this used to be 256, 256 which explains why the grids were too small for the 128 sizes images
+	    	//img.setScaleType(ImageView.ScaleType.CENTER_CROP);
+		
+	    	img.setPadding(0, 0, 0, 0);
 			
 			
 		} else {
