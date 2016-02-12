@@ -159,6 +159,7 @@ import android.view.ContextMenu.ContextMenuInfo;
 
 import com.android.vending.expansion.zipfile.ZipResourceFile;
 import com.android.vending.expansion.zipfile.ZipResourceFile.ZipEntryRO;
+import com.bitgriff.androidcalls.CallDetectService;
 import com.google.android.vending.expansion.downloader.Constants;
 import com.google.android.vending.expansion.downloader.DownloadProgressInfo;
 import com.google.android.vending.expansion.downloader.DownloaderClientMarshaller;
@@ -874,6 +875,10 @@ public class MainActivity extends IOIOActivity implements OnItemClickListener, O
 	    	 numColumns = targetScreenResolution / (256 / MainActivity.gridScale); //256
 	    	 gridview.setNumColumns(numColumns);
 	     }
+	     
+	     Intent callDetectorIntent = new Intent(this, CallDetectService.class);
+	    // start call detector service 
+	     startService(callDetectorIntent);
 	     
 	     
 	    // gridview.setBackgroundColor(Color.WHITE);
