@@ -4943,9 +4943,12 @@ public class AsyncRefreshArt extends AsyncTask<Void, String, Void> {
 	     slideShowAllPNGs_ = prefs.getBoolean("pref_slideShowAllPNGs", false);
 	     DisableNewArtCheck_ = prefs.getBoolean("pref_DisableNewArtCheck", true); //TO DO change this back to false
 	     AutoSelectPanel_ = prefs.getBoolean("pref_AutoSelectPanel", true);
+	     
+	     ///****** CAT Clutch visual notifications ***************
 	     incomingCall_ = prefs.getBoolean("pref_incomingCall", false);
 	     incomingSMS_ = prefs.getBoolean("pref_incomingSMS", false);
 	     displayIncomingSMS_ = prefs.getBoolean("pref_displayIncomingSMS", false);
+	     ///******************************************************
 	     
 	     matrix_model = Integer.valueOf(prefs.getString(   //the selected RGB LED Matrix Type
 	    	        resources.getString(R.string.selected_matrix),
@@ -5416,6 +5419,7 @@ public class AsyncRefreshArt extends AsyncTask<Void, String, Void> {
 		});
 	}  
     
+   
     private void showToastShort(final String msg) {
 		runOnUiThread(new Runnable() {
 			@Override
