@@ -250,9 +250,11 @@
     <string name="displayIncomingSMSDefault">false</string>
     <string name="displayIncomingSMSSummary">Display incoming text message</string>
     
-   
+    <string name="displayClock">Display Time</string>    
+    <string name="pref_displayClock">pref_displayClock</string>
+    <string name="displayClockDefault">false</string>
+    <string name="displayClockSummary">Display Time on CAT Clutch</string>
     
-    
-    
+  
    
 </resources>

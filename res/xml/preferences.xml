@@ -80,6 +80,12 @@
     android:key="pref_displayIncomingSMS"
     android:defaultValue="@string/displayIncomingSMSDefault"
     android:summary="@string/displayIncomingSMSSummary"/> 
+    
+    <CheckBoxPreference
+    android:title="@string/displayClock"
+    android:key="pref_displayClock"
+    android:defaultValue="@string/displayClockDefault"
+    android:summary="@string/displayClockSummary"/> 
 	      	      
     </PreferenceCategory>
     

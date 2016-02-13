@@ -513,6 +513,9 @@ public class MainActivity extends IOIOActivity implements OnItemClickListener, O
     private boolean incomingCall_ = false;
     private boolean incomingSMS_ = false;
     private boolean displayIncomingSMS_ = false;
+    private boolean displayClock_ = false;
+    
+   
    
     
     // The shared path of the OBB Expansion files
@@ -4948,6 +4951,7 @@ public class AsyncRefreshArt extends AsyncTask<Void, String, Void> {
 	     incomingCall_ = prefs.getBoolean("pref_incomingCall", false);
 	     incomingSMS_ = prefs.getBoolean("pref_incomingSMS", false);
 	     displayIncomingSMS_ = prefs.getBoolean("pref_displayIncomingSMS", false);
+	     displayClock_ = prefs.getBoolean("pref_displayClock", false);
 	     ///******************************************************
 	     
 	     matrix_model = Integer.valueOf(prefs.getString(   //the selected RGB LED Matrix Type
