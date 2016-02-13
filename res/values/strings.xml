@@ -67,7 +67,7 @@
     <string name="slideShowModeDefault">false</string>
     <string name="slideShowModeSummary">Slide Show Mode</string>
     
-    <string name="noSleep">Disable Power Savings</string>    
+    <string name="noSleep">Keep App On</string>    
     <string name="pref_noSleepDefault">false</string>
     <string name="noSleepSummary">Forces the app to be always on, your device will not go into power savings mode while this app is running. Good if using as a Kiosk for example. </string>
        
@@ -231,6 +231,26 @@
     
     <string name="noFreeSpace">Not Enough Free Space</string>    
     <string name="noFreeSpaceMsg">Sorry you do not have enough free space on your SD card storage for the new pixel art</string>    
+    
+    <string name="notificationsTitle">Notifications</string>    
+    <string name="notificationsTitleSummary">Smart Purse Notifications</string>   
+    
+    <string name="incomingCall">Incoming Call</string>    
+    <string name="pref_incomingCall">pref_incomingCall</string>
+    <string name="pref_incomingCallDefault">false</string>
+    <string name="incomingCallSummary">Light up CAT Clutch on incoming phone call</string>
+    
+    <string name="incomingSMS">Incoming Text Message</string>    
+    <string name="pref_incomingSMS">pref_incomingSMS</string>
+    <string name="pref_incomingSMSDefault">false</string>
+    <string name="incomingSMSSummary">Light up CAT Clutch on incoming text message</string>
+    
+    <string name="displayIncomingSMS">Display Incoming Text Message</string>    
+    <string name="pref_displayIncomingSMS">pref_displayIncomingSMS</string>
+    <string name="displayIncomingSMSDefault">false</string>
+    <string name="displayIncomingSMSSummary">Display incoming text message</string>
+    
+   
     
     
     

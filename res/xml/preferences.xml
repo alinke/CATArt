@@ -58,6 +58,31 @@
     android:defaultValue="@string/pref_noSleepDefault"
     android:summary="@string/noSleepSummary"/>
     
+    
+    <PreferenceCategory
+    android:title="@string/notificationsTitle"  
+    android:summary="@string/notificationsTitleSummary"> 
+    
+    <CheckBoxPreference
+    android:title="@string/incomingCall"
+    android:key="pref_incomingCall"
+    android:defaultValue="@string/pref_incomingCallDefault"
+    android:summary="@string/incomingCallSummary"/> 
+    
+    <CheckBoxPreference
+    android:title="@string/incomingSMS"
+    android:key="pref_incomingSMS"
+    android:defaultValue="@string/pref_incomingSMSDefault"
+    android:summary="@string/incomingSMSSummary"/> 
+    
+    <CheckBoxPreference
+    android:title="@string/displayIncomingSMS"
+    android:key="pref_displayIncomingSMS"
+    android:defaultValue="@string/displayIncomingSMSDefault"
+    android:summary="@string/displayIncomingSMSSummary"/> 
+	      	      
+    </PreferenceCategory>
+    
       <PreferenceCategory
     android:title="@string/slideShowtitle"  
     android:summary="@string/slideShowtitleSummary">        

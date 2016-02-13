@@ -159,7 +159,7 @@ import android.view.ContextMenu.ContextMenuInfo;
 
 import com.android.vending.expansion.zipfile.ZipResourceFile;
 import com.android.vending.expansion.zipfile.ZipResourceFile.ZipEntryRO;
-import com.bitgriff.androidcalls.CallDetectService;
+//import com.bitgriff.androidcalls.CallDetectService;
 import com.google.android.vending.expansion.downloader.Constants;
 import com.google.android.vending.expansion.downloader.DownloadProgressInfo;
 import com.google.android.vending.expansion.downloader.DownloaderClientMarshaller;
@@ -509,6 +509,11 @@ public class MainActivity extends IOIOActivity implements OnItemClickListener, O
     private IStub mDownloaderClientStub;
     
     public static int gridScale = 1;
+    
+    private boolean incomingCall_ = false;
+    private boolean incomingSMS_ = false;
+    private boolean displayIncomingSMS_ = false;
+   
     
     // The shared path of the OBB Expansion files
     private final static String EXP_PATH = "/Android/obb/";
@@ -4938,8 +4943,10 @@ public class AsyncRefreshArt extends AsyncTask<Void, String, Void> {
 	     slideShowAllPNGs_ = prefs.getBoolean("pref_slideShowAllPNGs", false);
 	     DisableNewArtCheck_ = prefs.getBoolean("pref_DisableNewArtCheck", true); //TO DO change this back to false
 	     AutoSelectPanel_ = prefs.getBoolean("pref_AutoSelectPanel", true);
+	     incomingCall_ = prefs.getBoolean("pref_incomingCall", false);
+	     incomingSMS_ = prefs.getBoolean("pref_incomingSMS", false);
+	     displayIncomingSMS_ = prefs.getBoolean("pref_displayIncomingSMS", false);
 	     
-	   
 	     matrix_model = Integer.valueOf(prefs.getString(   //the selected RGB LED Matrix Type
 	    	        resources.getString(R.string.selected_matrix),
 	    	        resources.getString(R.string.matrix_default_value))); 
