@@ -154,6 +154,9 @@ int string debugModeSummary 0x7f06008d
 int string dialogTitleFPSOverride 0x7f060042
 int string dialogTitleMatrix 0x7f060038
 int string dialogTitlegridSize 0x7f0600c3
+int string displayIncomingSMS 0x7f0600d6
+int string displayIncomingSMSDefault 0x7f0600d8
+int string displayIncomingSMSSummary 0x7f0600d9
 int string downloadURL_32 0x7f060062
 int string downloadURL_32Default 0x7f060064
 int string downloadURL_32Summary 0x7f060065
@@ -171,6 +174,10 @@ int string gridSizeTitle 0x7f0600c1
 int string imageDisplayDuration 0x7f060072
 int string imageDisplayDurationDefault 0x7f060074
 int string imageDisplayDurationSummary 0x7f060075
+int string incomingCall 0x7f0600ce
+int string incomingCallSummary 0x7f0600d1
+int string incomingSMS 0x7f0600d2
+int string incomingSMSSummary 0x7f0600d5
 int string kilobytes_per_second 0x7f060014
 int string kioskMode 0x7f06004e
 int string kioskModeSummary 0x7f060051
@@ -207,6 +214,8 @@ int string noSleepSummary 0x7f06004d
 int string notFoundString 0x7f06002e
 int string notification_download_complete 0x7f060000
 int string notification_download_failed 0x7f060001
+int string notificationsTitle 0x7f0600cc
+int string notificationsTitleSummary 0x7f0600cd
 int string oneTimeCopyMessage 0x7f060090
 int string oneTimeCopyTitle 0x7f06008f
 int string oneTimeDecode 0x7f06009d
@@ -223,11 +232,16 @@ int string pref_DisableNewArtCheck 0x7f0600bd
 int string pref_DisableNewArtCheckDefault 0x7f0600be
 int string pref_debugMode 0x7f06008b
 int string pref_debugModeDefault 0x7f06008c
+int string pref_displayIncomingSMS 0x7f0600d7
 int string pref_downloadURL_32 0x7f060063
 int string pref_downloadURL_64 0x7f060067
 int string pref_gifonly 0x7f060053
 int string pref_gifonlyDefault 0x7f060054
 int string pref_imageDisplayDuration 0x7f060073
+int string pref_incomingCall 0x7f0600cf
+int string pref_incomingCallDefault 0x7f0600d0
+int string pref_incomingSMS 0x7f0600d3
+int string pref_incomingSMSDefault 0x7f0600d4
 int string pref_kioskMode 0x7f06004f
 int string pref_kioskModeDefault 0x7f060050
 int string pref_noSleepDefault 0x7f06004c

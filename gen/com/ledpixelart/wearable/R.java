@@ -179,6 +179,9 @@ public final class R {
         public static final int dialogTitleFPSOverride=0x7f060042;
         public static final int dialogTitleMatrix=0x7f060038;
         public static final int dialogTitlegridSize=0x7f0600c3;
+        public static final int displayIncomingSMS=0x7f0600d6;
+        public static final int displayIncomingSMSDefault=0x7f0600d8;
+        public static final int displayIncomingSMSSummary=0x7f0600d9;
         public static final int downloadURL_32=0x7f060062;
         public static final int downloadURL_32Default=0x7f060064;
         public static final int downloadURL_32Summary=0x7f060065;
@@ -196,6 +199,10 @@ public final class R {
         public static final int imageDisplayDuration=0x7f060072;
         public static final int imageDisplayDurationDefault=0x7f060074;
         public static final int imageDisplayDurationSummary=0x7f060075;
+        public static final int incomingCall=0x7f0600ce;
+        public static final int incomingCallSummary=0x7f0600d1;
+        public static final int incomingSMS=0x7f0600d2;
+        public static final int incomingSMSSummary=0x7f0600d5;
         public static final int kilobytes_per_second=0x7f060014;
         public static final int kioskMode=0x7f06004e;
         public static final int kioskModeSummary=0x7f060051;
@@ -244,6 +251,8 @@ public final class R {
         application, a content marketplace. 
          */
         public static final int notification_download_failed=0x7f060001;
+        public static final int notificationsTitle=0x7f0600cc;
+        public static final int notificationsTitleSummary=0x7f0600cd;
         public static final int oneTimeCopyMessage=0x7f060090;
         public static final int oneTimeCopyTitle=0x7f06008f;
         public static final int oneTimeDecode=0x7f06009d;
@@ -260,11 +269,16 @@ public final class R {
         public static final int pref_DisableNewArtCheckDefault=0x7f0600be;
         public static final int pref_debugMode=0x7f06008b;
         public static final int pref_debugModeDefault=0x7f06008c;
+        public static final int pref_displayIncomingSMS=0x7f0600d7;
         public static final int pref_downloadURL_32=0x7f060063;
         public static final int pref_downloadURL_64=0x7f060067;
         public static final int pref_gifonly=0x7f060053;
         public static final int pref_gifonlyDefault=0x7f060054;
         public static final int pref_imageDisplayDuration=0x7f060073;
+        public static final int pref_incomingCall=0x7f0600cf;
+        public static final int pref_incomingCallDefault=0x7f0600d0;
+        public static final int pref_incomingSMS=0x7f0600d3;
+        public static final int pref_incomingSMSDefault=0x7f0600d4;
         public static final int pref_kioskMode=0x7f06004f;
         public static final int pref_kioskModeDefault=0x7f060050;
         public static final int pref_noSleepDefault=0x7f06004c;
