@@ -220,7 +220,7 @@
     <string name="gridSizeTitle">Image Grid Size</string>
     <string name="gridSizeSummary">Choose smaller for less vertical scrolling but with smaller image sizes</string>    
     <string name="dialogTitlegridSize">Image Grid Size</string>
-    <string name="gridSizeDefault">2</string>  
+    <string name="gridSizeDefault">1</string>  
     
     <string name="unsupportedPanel">Incompatible LED Panel</string>    
     <string name="unsupportedPanelMsg">Very Sorry&#8230;\n\nThe LED Panel you have selected is not compatible with your CAT Device board.\n\nYou would need to upgrade to a CAT Device v2.5 or higher board to support this LED panel\n\nPlease now change the LED panel to a supported one.</string>

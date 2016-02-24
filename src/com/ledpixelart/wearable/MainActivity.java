@@ -1364,15 +1364,15 @@ public class MainActivity extends IOIOActivity implements OnItemClickListener, O
 		  		GIF64decodeddir.mkdirs();
 		  	}
 			
-		  	copyArt(); //copy the .png and .gif files (mainly png) because we want to decode first
-		    copyGIFDecoded();  //copy the decoded files
+		  //	copyArt(); //copy the .png and .gif files (mainly png) because we want to decode first
+		  //  copyGIFDecoded();  //copy the decoded files
 			//copyPNG();  //copy the png files
 			//copyGIF64();
 			copyGIF16();
 			copyGIF16Source();
 			copyGIF16Decoded();
 			//copyPNG64();
-			copyGIFSource();
+		//	copyGIFSource();
 			//copyGIF64Source();
 			//copyGIF64Decoded();
 			

@@ -154,6 +154,9 @@ int string debugModeSummary 0x7f06008d
 int string dialogTitleFPSOverride 0x7f060042
 int string dialogTitleMatrix 0x7f060038
 int string dialogTitlegridSize 0x7f0600c3
+int string displayClock 0x7f0600da
+int string displayClockDefault 0x7f0600dc
+int string displayClockSummary 0x7f0600dd
 int string displayIncomingSMS 0x7f0600d6
 int string displayIncomingSMSDefault 0x7f0600d8
 int string displayIncomingSMSSummary 0x7f0600d9
@@ -232,6 +235,7 @@ int string pref_DisableNewArtCheck 0x7f0600bd
 int string pref_DisableNewArtCheckDefault 0x7f0600be
 int string pref_debugMode 0x7f06008b
 int string pref_debugModeDefault 0x7f06008c
+int string pref_displayClock 0x7f0600db
 int string pref_displayIncomingSMS 0x7f0600d7
 int string pref_downloadURL_32 0x7f060063
 int string pref_downloadURL_64 0x7f060067

@@ -179,6 +179,9 @@ public final class R {
         public static final int dialogTitleFPSOverride=0x7f060042;
         public static final int dialogTitleMatrix=0x7f060038;
         public static final int dialogTitlegridSize=0x7f0600c3;
+        public static final int displayClock=0x7f0600da;
+        public static final int displayClockDefault=0x7f0600dc;
+        public static final int displayClockSummary=0x7f0600dd;
         public static final int displayIncomingSMS=0x7f0600d6;
         public static final int displayIncomingSMSDefault=0x7f0600d8;
         public static final int displayIncomingSMSSummary=0x7f0600d9;
@@ -269,6 +272,7 @@ public final class R {
         public static final int pref_DisableNewArtCheckDefault=0x7f0600be;
         public static final int pref_debugMode=0x7f06008b;
         public static final int pref_debugModeDefault=0x7f06008c;
+        public static final int pref_displayClock=0x7f0600db;
         public static final int pref_displayIncomingSMS=0x7f0600d7;
         public static final int pref_downloadURL_32=0x7f060063;
         public static final int pref_downloadURL_64=0x7f060067;
