@@ -237,12 +237,12 @@
     
     <string name="incomingCall">Incoming Call</string>    
     <string name="pref_incomingCall">pref_incomingCall</string>
-    <string name="pref_incomingCallDefault">false</string>
+    <string name="pref_incomingCallDefault">true</string>
     <string name="incomingCallSummary">Light up CAT Clutch on incoming phone call</string>
     
     <string name="incomingSMS">Incoming Text Message</string>    
     <string name="pref_incomingSMS">pref_incomingSMS</string>
-    <string name="pref_incomingSMSDefault">false</string>
+    <string name="pref_incomingSMSDefault">true</string>
     <string name="incomingSMSSummary">Light up CAT Clutch on incoming text message</string>
     
     <string name="displayIncomingSMS">Display Incoming Text Message</string>    

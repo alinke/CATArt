@@ -43,12 +43,16 @@ public class SmsReceiver extends BroadcastReceiver {
             // Display the entire SMS Message
             Log.d(TAG, str);
             int duration = Toast.LENGTH_LONG;
-            Toast toast = Toast.makeText(context, 
-                         "senderNum: "+ str + ", message: " + str, duration);
-            toast.show();
-          ///  Toast toast = Toast.makeText(SmsReceiver.this, str, Toast.LENGTH_LONG);
-          //  toast.show();
-           // MainActivity.showToast2(str);
+            
+            if (MainActivity.debug_ == true) {
+            	 Toast toast = Toast.makeText(context, 
+                "senderNum: "+ str + ", message: " + str, duration);
+   				toast.show();
+            }
+           
+            if (MainActivity.incomingSMS_ == true) {  //only go here if the preference tells us to, it's true by default
+            	MainActivity.incomingSMSAnimation();
+            }
         }
     }
 }

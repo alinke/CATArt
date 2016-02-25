@@ -66,7 +66,7 @@
     <CheckBoxPreference
     android:title="@string/incomingCall"
     android:key="pref_incomingCall"
-    android:defaultValue="@string/pref_incomingCallDefault"
+    android:defaultValue="@string/pref_incomingCallDefault"    
     android:summary="@string/incomingCallSummary"/> 
     
     <CheckBoxPreference

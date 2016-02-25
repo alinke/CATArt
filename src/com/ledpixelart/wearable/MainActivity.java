@@ -284,6 +284,8 @@ public class MainActivity extends IOIOActivity implements OnItemClickListener, O
     public static String userGIFPath =  Environment.getExternalStorageDirectory() + "/CAT/usergif/";  //user supplied gifs, there will be a decoded directory here
     public static String FavPNGPath =  Environment.getExternalStorageDirectory() + "/CAT/favpng/"; //user supplied pngs
     public static String FavGIFPath =  Environment.getExternalStorageDirectory() + "/CAT/favgif/";  //user supplied gifs, there will be a decoded directory here
+    public static String GIFSystemPath =  Environment.getExternalStorageDirectory() + "/CAT/system/";  //system GIFs
+   
    
     private static Context context;
     private Context frameContext;
@@ -301,7 +303,7 @@ public class MainActivity extends IOIOActivity implements OnItemClickListener, O
 	private int size;  //the number of pictures
 	private ProgressDialog pDialog = null;
 	private int columnIndex; 
-	private boolean debug_;
+	public static boolean debug_;
 	private static int appAlreadyStarted = 0;
 	private int FPSOverride_ = 0;
 	public static float fps = 0;
@@ -511,9 +513,11 @@ public class MainActivity extends IOIOActivity implements OnItemClickListener, O
     public static int gridScale = 1;
     
     private boolean incomingCall_ = false;
-    private boolean incomingSMS_ = false;
+    public static boolean incomingSMS_ = false;
     private boolean displayIncomingSMS_ = false;
     private boolean displayClock_ = false;
+    private boolean incomingPhoneCall = false;
+    private boolean incomingSMS = false;
     
    
    
@@ -965,8 +969,9 @@ public class MainActivity extends IOIOActivity implements OnItemClickListener, O
             	
             	File artdir = new File(GIF16Path);
             	File PNGdir = new File(PNG16Path);
+            	File GIFSystemdir = new File(GIFSystemPath);
             	
-	            if (!artdir.exists() || !PNGdir.exists()) { //no directory so let's now start the one time setup
+	            if (!artdir.exists() || !PNGdir.exists() || !GIFSystemdir.exists()) { //if any of these dirs are gone, let's do the one time setup, the system one has the notification animations
 	            
 	            	new copyFilesAsync().execute();
 	            	//note that continueOnCreate() is called after this async task is done
@@ -1363,6 +1368,16 @@ public class MainActivity extends IOIOActivity implements OnItemClickListener, O
 		  	if (!GIF64decodeddir.exists()) {
 		  		GIF64decodeddir.mkdirs();
 		  	}
+		  	
+			File GIFSystemdir = new File(GIFSystemPath);
+		  	if (!GIFSystemdir.exists()) {
+		  		GIFSystemdir.mkdirs();
+		  	}
+			
+			File GIFSystemdecodeddir = new File(GIFSystemPath + "decoded");
+		  	if (!GIFSystemdecodeddir.exists()) {
+		  		GIFSystemdecodeddir.mkdirs();
+		  	}
 			
 		  //	copyArt(); //copy the .png and .gif files (mainly png) because we want to decode first
 		  //  copyGIFDecoded();  //copy the decoded files
@@ -1371,6 +1386,9 @@ public class MainActivity extends IOIOActivity implements OnItemClickListener, O
 			copyGIF16();
 			copyGIF16Source();
 			copyGIF16Decoded();
+			copyGIFSystem();
+			copyGIFSystemDecoded();
+			
 			//copyPNG64();
 		//	copyGIFSource();
 			//copyGIF64Source();
@@ -1615,6 +1633,73 @@ private void copyGIF64Source() {
           }       
       }
   } //end copy gifsource
+  
+  private void copyGIFSystem() {
+  	
+  	AssetManager assetManager = getResources().getAssets();
+      String[] files = null;
+      try {
+          files = assetManager.list("system");
+      } catch (Exception e) {
+          Log.e("read clipart ERROR", e.toString());
+          e.printStackTrace();
+      }
+      for(int i=0; i<files.length; i++) {
+      	progress_status ++;
+	  		publishProgress(progress_status);  
+          InputStream in = null;
+          OutputStream out = null;
+          try {
+           in = assetManager.open("system/" + files[i]);
+           out = new FileOutputStream(GIFSystemPath + files[i]); 
+            copyFile(in, out);
+            in.close();
+            in = null;
+            out.flush();
+            out.close();
+            out = null;  
+            
+            //no need to register these with mediascanner as these are internal gifs , the workaround for the gifs with a black frame as the first frame
+         
+          } catch(Exception e) {
+              Log.e("copy clipart ERROR", e.toString());
+              e.printStackTrace();
+          }       
+      }
+  } //end copyPNG
+  
+  private void copyGIFSystemDecoded() {
+	  	
+	  	AssetManager assetManager = getResources().getAssets();
+	      String[] files = null;
+	      try {
+	          files = assetManager.list("system/decoded");
+	      } catch (Exception e) {
+	          Log.e("read clipart ERROR", e.toString());
+	          e.printStackTrace();
+	      }
+	      for(int i=0; i<files.length; i++) {
+	      	progress_status ++;
+		  		publishProgress(progress_status);  
+	          InputStream in = null;
+	          OutputStream out = null;
+	          try {
+	           in = assetManager.open("system/decoded/" + files[i]);
+	           out = new FileOutputStream(GIFSystemPath + "decoded/" + files[i]);
+	            copyFile(in, out);
+	            in.close();
+	            in = null;
+	            out.flush();
+	            out.close();
+	            out = null;
+	         
+	          } catch(Exception e) {
+	              Log.e("copy clipart ERROR", e.toString());
+	              e.printStackTrace();
+	          }       
+	      }
+	  } 
+  
   
   private void copyGIF16Decoded() {
   	
@@ -2118,7 +2203,27 @@ private void copyGIF64Source() {
 	      } 
 	  
     }  
+    
+     public  void incomingCallAnimation() {
+    	
+    	decodedDirPath = GIF16Path + "decoded";
+    	gifPath_ = GIF16Path;
+    	//imagePath = gifPath_ + "gifsource/" + filename_no_extension + ".gif";
+    	imagePath = gifPath_ + "gifsource/" + "worm16" + ".gif";
+		gifView.setGif(imagePath);  //just sets the image , no decoding, decoding happens in the animateafterdecode method
+		animateIncoming("worm16");
+    	
+    }
 	  
+     public static  void incomingSMSAnimation() {
+    	 decodedDirPath = GIFSystemPath + "decoded";
+    	 gifPath_ = GIFSystemPath;
+    	 //imagePath = gifPath_ + "gifsource/" + filename_no_extension + ".gif";
+    	 imagePath = gifPath_ + "sms16" + ".gif";
+		 gifView.setGif(imagePath);  //just sets the image , no decoding, decoding happens in the animateafterdecode method
+		 Log.d(TAG, imagePath);
+		 animateIncoming("sms16");
+    }
 		
 
    /* private static String[] getAPKExpansionFiles(Context ctx, int mainVersion,
@@ -3460,56 +3565,57 @@ public class UnFavoriteGIFMoveAsync extends AsyncTask<Void, Integer, Void>{
 			        }
 			        //if the file type was not one of these like a png for example, then we don't care about the decodeddirpath and we don't change it
 			        
-			        if (extension_.equals("png")) {  //then we use the thumbnail, we just need to rename the image path to a gif
-			        	
-			        	File pngRGB565path = new File(gifPath_ + "decoded/" + filename_no_extension + ".rgb565"); //sdcard/pixel/gifs/decoded/tree.rgb565
-			        	if (!pngRGB565path.exists()) { //if it doesn't exist
-			        		
-			        		//ok not there so let's see if the original gif is there as decoded may have been deleted because the led panel changed
-			        		File originalGIF = new File(gifPath_ + "gifsource/" + filename_no_extension + ".gif"); //sdcard/pixel/gifs/gifsource/tree.rgb565
-			        		if (originalGIF.exists()) { 
-			        			//we've got the original gif so now let's decode it
-			        			 imagePath = gifPath_ + "gifsource/" + filename_no_extension + ".gif";
-			        			 gifView.setGif(imagePath);  //just sets the image , no decoding, decoding happens in the animateafterdecode method
-						     	 animateAfterDecode(0);
-			        		}
-			        		else { //well we tried, no original gif so we'll treat it as a png
-					            	//there's no rgb565 and we only have a single frame png so let's just send this single frame png to pixel
-						        	
-					        		//it's  not there so let's check the original gifs folder, if it's in there, then treat it like a gif and decode
-					        		
-					        		imagePath = originalImagePath;
-					        		try {
-					        			//TO DO will this crash pixel v1?
-					        			matrix_.interactive();  //this has to be here in case we were in interactive mode from a previous long tap
-					        			WriteImagetoMatrix();
-									} catch (ConnectionLostException e) {
-										// TODO Auto-generated catch block
-										e.printStackTrace();
-									}
-					            }
-			        		}
-			        	else {  //the rgb565 is there
-			        		//gifView.setGif(imagePath);  //this is causing a crash, TO DO figure out why later 
-			        		animateAfterDecode(0); //the rgb565 is there so let's run the already decoded animation
-					    } 
-			        }
-			        
-			        else if (extension_.equals("jpg") || extension_.equals("jpeg")) {  
-			        	imagePath = originalImagePath;
-		        		try {
-		        			matrix_.interactive(); //this has to be here in case we were in interactive mode from a previous long tap
-		        			WriteImagetoMatrix();
-						} catch (ConnectionLostException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-			        }
-			        
-			       else if (extension_.equals("gif")) {  // if it's not a png, then it's a gif so let's animate
-			     	   gifView.setGif(imagePath);  //just sets the image , no decoding, decoding happens in the animateafterdecode method
-			     	   animateAfterDecode(0);
-			       } 
+			       
+				        if (extension_.equals("png")) {  //then we use the thumbnail, we just need to rename the image path to a gif
+				        	
+				        	File pngRGB565path = new File(gifPath_ + "decoded/" + filename_no_extension + ".rgb565"); //sdcard/pixel/gifs/decoded/tree.rgb565
+				        	if (!pngRGB565path.exists()) { //if it doesn't exist
+				        	
+				        		//ok not there so let's see if the original gif is there as decoded may have been deleted because the led panel changed
+				        		File originalGIF = new File(gifPath_ + "gifsource/" + filename_no_extension + ".gif"); //sdcard/pixel/gifs/gifsource/tree.rgb565
+				        		if (originalGIF.exists()) { 
+				        			//we've got the original gif so now let's decode it
+				        			 imagePath = gifPath_ + "gifsource/" + filename_no_extension + ".gif";
+				        			 gifView.setGif(imagePath);  //just sets the image , no decoding, decoding happens in the animateafterdecode method
+							     	 animateAfterDecode(0);
+				        		}
+				        		else { //well we tried, no original gif so we'll treat it as a png
+						            	//there's no rgb565 and we only have a single frame png so let's just send this single frame png to pixel
+							        	
+						        		//it's  not there so let's check the original gifs folder, if it's in there, then treat it like a gif and decode
+						        		
+						        		imagePath = originalImagePath;
+						        		try {
+						        			//TO DO will this crash pixel v1?
+						        			matrix_.interactive();  //this has to be here in case we were in interactive mode from a previous long tap
+						        			WriteImagetoMatrix();
+										} catch (ConnectionLostException e) {
+											// TODO Auto-generated catch block
+											e.printStackTrace();
+										}
+						            }
+				        		}
+				        	else {  //the rgb565 is there
+				        		//gifView.setGif(imagePath);  //this is causing a crash, TO DO figure out why later 
+				        		animateAfterDecode(0); //the rgb565 is there so let's run the already decoded animation
+						    } 
+				        }
+				        
+				        else if (extension_.equals("jpg") || extension_.equals("jpeg")) {  
+				        	imagePath = originalImagePath;
+			        		try {
+			        			matrix_.interactive(); //this has to be here in case we were in interactive mode from a previous long tap
+			        			WriteImagetoMatrix();
+							} catch (ConnectionLostException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+				        }
+				        
+				       else if (extension_.equals("gif")) {  // if it's not a png, then it's a gif so let's animate
+				     	   gifView.setGif(imagePath);  //just sets the image , no decoding, decoding happens in the animateafterdecode method
+				     	   animateAfterDecode(0);
+				       } 
 			   
 			       // animateAfterDecode(0);  //DELETE this line ? 0 means streaming mode, 1 means download mode 
 	        }
@@ -3811,6 +3917,87 @@ public class UnFavoriteGIFMoveAsync extends AsyncTask<Void, Integer, Void>{
 
   return inSampleSize;
 }
+  
+  public static void animateIncoming(String incomingFileName) {
+	  
+	  //first check if rgb565 file is there, proceed if so
+	  // if not then decode
+	  // also check if the led matrix selected now doesn't match the led matrix from the decoded file, re-decode if so
+	  
+	  
+	  //********we need to reset everything because the user could have been already running an animation
+	     x = 0;
+	     stopTimers();
+	  ///****************************
+     
+     //now let's check if this file was already decoded by looking for the text meta data file
+	     
+	 //    02-24 19:05:08.641: D/PixelAnimations(2029): /storage/emulated/0/CAT/gif16/gifsource/waterflow16.gif
+	     
+	//     public static String decodedDirPath =  Environment.getExternalStorageDirectory() + "/CAT/gif16/decoded"; 
+	     
+	     //File file = new File(decodedDirPath + "/" + selectedFileName + ".rgb565"); this is in the decoded timer so we need to set selectedFileName here
+    
+	 selectedFileName =  incomingFileName; //the decoded timer uses this one
+	// public static String decodedDirPath =  Environment.getExternalStorageDirectory() + "/CAT/gif16/decoded"; 
+	// decodedDirPath =  Environment.getExternalStorageDirectory() + "/CAT/system/decoded"; 
+	 
+ 	//File decodedFile = new File(decodedDirPath + "/" + selectedFileName  + ".txt"); //decoded/sms16.txt
+ 	File decodedFile = new File(decodedDirPath + "/" + incomingFileName  + ".txt"); //decoded/sms16.txt
+		if(decodedFile.exists()) {
+	   	      StringBuilder text = new StringBuilder();
+	   	      String fileAttribs = null;
+	   	    
+	   	      try {
+	   	          BufferedReader br = new BufferedReader(new FileReader(decodedFile));
+	   	          String line;
+	   
+	   	          while ((line = br.readLine()) != null) {
+	   	              text.append(line);
+	   	              text.append('\n');	   	             
+	   	          }
+	   	      }
+	   	      catch (IOException e) {
+	   	          //You'll need to add proper error handling here
+	   			
+	   	      }
+	   	      
+	   	    fileAttribs = text.toString();  //now convert to a string	   	      
+	   	    String fdelim = "[,]"; //now parse this string considering the comma split  ie, 32,60
+	        String[] fileAttribs2 = fileAttribs.split(fdelim);
+	        selectedFileTotalFrames = Integer.parseInt(fileAttribs2[0].trim());
+	    	selectedFileDelay = Integer.parseInt(fileAttribs2[1].trim());
+	    	selectedFileResolution = Integer.parseInt(fileAttribs2[2].trim());
+	    	
+	    	Log.d("CATClutch","went here1 " + selectedFileResolution );
+	    	
+	    	//we need this for the decoder timer
+	    	//now we need to compare the current resoluiton with the encoded resolution
+	    	//if different, then we need to re-encode
+	    	
+	    	if (selectedFileResolution == currentResolution) {  //selected resoluton comes from the text file of the select file and current comes from the selected led matrix type from preferences
+	    		Log.d("CATClutch","went here2 ");
+			    	if (selectedFileDelay != 0) {  //then we're doing the FPS override which the user selected from settings
+			    		fps = 1000.f / selectedFileDelay;
+					} else { 
+			    		fps = 0;
+			    	}
+			    	
+			    	MainActivity myActivity = new MainActivity();  //had to add this due to some java requirement	
+		    		
+		    				try {
+								matrix_.interactive();
+							} catch (ConnectionLostException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							} //put PIXEL back in interactive mode, can't forget to do that! or we'll just be playing local animations
+		    				decodedtimer = myActivity.new DecodedTimer(300000,selectedFileDelay);  //stream mode
+							decodedtimer.start();
+							StreamModePlaying = 1; //our isStreamModePlaying flag	
+	    	}	
+		}
+		
+  } 
   
   public void animateAfterDecode(int longpress) {
 	  
@@ -4654,6 +4841,9 @@ public class AsyncRefreshArt extends AsyncTask<Void, String, Void> {
 	  File gifPathDecoded16 = new File(GIF16Path + "decoded");
 	  File gifPathSource16 = new File(GIF16Path + "gifsource");
 	  
+	  File gifPathSystem = new File(GIFSystemPath);
+	  File gifPathSystemDecoded = new File(GIFSystemPath + "decoded");
+	  
 	  File ObbDir = new File(Environment.getExternalStorageDirectory() + "/Android/obb/com.ledpixelart.wearable"); //where the two expansion APK files are stored
 	  
 	  
@@ -4684,6 +4874,9 @@ public class AsyncRefreshArt extends AsyncTask<Void, String, Void> {
 		  DeleteRecursive(gifPath16);  
 		  DeleteRecursive(gifPathDecoded16);  
 		  DeleteRecursive(gifPathSource16);  
+		  
+		  DeleteRecursive(gifPathSystem);  
+		  DeleteRecursive(gifPathSystemDecoded);  
 		  
 		  DeleteRecursive(ObbDir);
 		  
