@@ -745,12 +745,17 @@ public int getDecodedresolution(String decodedGIFPathTXT) {  //need to return th
       }    
         
         
-    public void writeMessageToPixel(float x, String text, Paint paint, int y) throws ConnectionLostException 
+    public void writeMessageToPixel(float x, String text, Paint textPaint, int y) throws ConnectionLostException 
+   // public void writeMessageToPixel(float x, String text, int y) throws ConnectionLostException 
     {  
+    	
+    //	Paint textPaint = new Paint();
+    	
+    	
     	//here we'll take a PNG, BMP, or whatever and convert it to RGB565 via a canvas, also we'll re-size the image if necessary
     	
-    	//originalImage = Bitmap.createBitmap(64,  64, Bitmap.Config.RGB_565); //was this originally when hard coded for 32x32
-    	originalImage = Bitmap.createBitmap( KIND.width * 2,  KIND.height* 2, Bitmap.Config.RGB_565);  //let's create the image we need
+    	originalImage = Bitmap.createBitmap(32,  16, Bitmap.Config.RGB_565); //was this originally when hard coded for 32x32
+    	//originalImage = Bitmap.createBitmap( KIND.width * 2,  KIND.height* 2, Bitmap.Config.RGB_565);  //let's create the image we need
     	Canvas canvas = new Canvas(originalImage);  
     	
     	//float y = 50;
@@ -762,11 +767,13 @@ public int getDecodedresolution(String decodedGIFPathTXT) {  //need to return th
     	
     	//int paintheight = paint.
     	
-    	canvas.drawText(text, x, y, paint);
-	    canvasBitmap = Bitmap.createBitmap(KIND.width, KIND.height, Config.RGB_565); 
+    	canvas.drawText(text, x, y, textPaint);
+	    //canvasBitmap = Bitmap.createBitmap(KIND.width, KIND.height, Config.RGB_565); 
+	    canvasBitmap = Bitmap.createBitmap(32, 16, Config.RGB_565); 
 	    canvas = new Canvas(canvasBitmap);
 	   	canvas.drawBitmap(originalImage, 0, 0, null);
-	    ByteBuffer buffer = ByteBuffer.allocate(KIND.width * KIND.height *2); //Create a new buffer
+	   // ByteBuffer buffer = ByteBuffer.allocate(KIND.width * KIND.height *2); //Create a new buffer
+	    ByteBuffer buffer = ByteBuffer.allocate(32 * 16 *2); //Create a new buffer
 	    canvasBitmap.copyPixelsToBuffer(buffer); //copy the bitmap 565 to the buffer		
 	   	BitmapBytes = buffer.array(); //copy the buffer into the type array
 		 

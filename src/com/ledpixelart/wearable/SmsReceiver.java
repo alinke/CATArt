@@ -33,7 +33,7 @@ public class SmsReceiver extends BroadcastReceiver {
                 // Convert Object array
                 msgs[i] = SmsMessage.createFromPdu((byte[]) pdus[i]);
                 // Sender's phone number
-                str += "SMS from " + msgs[i].getOriginatingAddress() + " : ";
+                //str += "SMS from " + msgs[i].getOriginatingAddress() + " : ";
                 // Fetch the text message
                 str += msgs[i].getMessageBody().toString();
                 // Newline <img src="http://codetheory.in/wp-includes/images/smilies/simple-smile.png" alt=":-)" class="wp-smiley" style="height: 1em; max-height: 1em;">
@@ -50,9 +50,13 @@ public class SmsReceiver extends BroadcastReceiver {
    				toast.show();
             }
            
-            if (MainActivity.incomingSMS_ == true) {  //only go here if the preference tells us to, it's true by default
+            if (MainActivity.displayIncomingSMS_) {  //scroll the message if on
+            	MainActivity.scrollText(str, false);
+            }
+            else if (MainActivity.incomingSMS_) {  //or if not we can just show an icon letting the user they have a text message
             	MainActivity.incomingSMSAnimation();
             }
+            
         }
     }
 }
