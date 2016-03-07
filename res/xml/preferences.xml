@@ -14,25 +14,34 @@
    </intent>
    </PreferenceScreen>
    
+ <CheckBoxPreference
+    android:title="@string/noSleep"
+    android:key="pref_noSleep"
+    android:defaultValue="@string/pref_noSleepDefault"
+    android:summary="@string/noSleepSummary"/>
+   
    <!--  <CheckBoxPreference
     android:title="@string/scanAll"
     android:key="pref_scanAll"
     android:defaultValue="@string/pref_scanAll_default"
     android:summary="@string/scanAllSummary"/>-->
     
+     <!--
     <CheckBoxPreference
     android:title="@string/AutoSelectPanel"
     android:key="pref_AutoSelectPanel"
     android:defaultValue="@string/pref_AutoSelectPanelDefault"
     android:summary="@string/AutoSelectPanelSummary"/>
     
+    
     <CheckBoxPreference
     android:title="@string/DisableNewArtCheck"
     android:key="pref_DisableNewArtCheck"
     android:defaultValue="@string/pref_DisableNewArtCheckDefault"
     android:summary="@string/DisableNewArtCheckSummary"/>
+    -->
     
-     
+     <!-- 
     <ListPreference
     android:key="@string/selected_matrix"
     android:title="@string/matrix"
@@ -41,6 +50,9 @@
     android:entryValues="@array/matrix_values"
     android:dialogTitle="@string/dialogTitleMatrix"
     android:defaultValue="@string/matrix_default_value" />
+    -->
+    
+  
     
     <ListPreference
     android:key="@string/gridSize"
@@ -52,22 +64,20 @@
     android:defaultValue="@string/gridSizeDefault" />
      
     
-    <CheckBoxPreference
-    android:title="@string/noSleep"
-    android:key="pref_noSleep"
-    android:defaultValue="@string/pref_noSleepDefault"
-    android:summary="@string/noSleepSummary"/>
+    
     
     
     <PreferenceCategory
     android:title="@string/notificationsTitle"  
     android:summary="@string/notificationsTitleSummary"> 
     
+     <!-- 
     <CheckBoxPreference
     android:title="@string/incomingCall"
     android:key="pref_incomingCall"
     android:defaultValue="@string/pref_incomingCallDefault"    
     android:summary="@string/incomingCallSummary"/> 
+    -->
     
     <CheckBoxPreference
     android:title="@string/incomingSMS"
@@ -81,11 +91,22 @@
     android:defaultValue="@string/displayIncomingSMSDefault"
     android:summary="@string/displayIncomingSMSSummary"/> 
     
+     <ListPreference
+    android:key="@string/selected_textColor"
+    android:title="@string/textColor"
+    android:summary="@string/textColorSummary"
+    android:entries="@array/color_options"
+    android:entryValues="@array/color_values"
+    android:dialogTitle="@string/dialogTitletextColor"
+    android:defaultValue="@string/textColor_default_value" />
+    
+     <!--
     <CheckBoxPreference
     android:title="@string/displayClock"
     android:key="pref_displayClock"
     android:defaultValue="@string/displayClockDefault"
     android:summary="@string/displayClockSummary"/> 
+    -->
 	      	      
     </PreferenceCategory>
     
@@ -121,9 +142,6 @@
 	    android:entryValues="@array/FPSOverride_values"
 	    android:dialogTitle="@string/slideshowGIFFPS_dialogTitle"
 	    android:defaultValue="@string/slideshowGIFFPS_default_value" />
-	      
-	      
-	      
 	      
 	      
 	 <!--     <CheckBoxPreference
@@ -179,13 +197,6 @@
     android:entryValues="@array/FPSOverride_values"
     android:dialogTitle="@string/dialogTitleFPSOverride"
     android:defaultValue="@string/FPSOverrideDefault" />  -->
-    
-        
- 
-    
-    
-  
-    
     
     <CheckBoxPreference
     android:title="@string/debugMode"

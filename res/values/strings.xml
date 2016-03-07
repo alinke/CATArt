@@ -240,20 +240,26 @@
     <string name="pref_incomingCallDefault">true</string>
     <string name="incomingCallSummary">Light up CAT Clutch on incoming phone call</string>
     
-    <string name="incomingSMS">Incoming Text Message</string>    
+    <string name="incomingSMS">Incoming Text Notification</string>    
     <string name="pref_incomingSMS">pref_incomingSMS</string>
     <string name="pref_incomingSMSDefault">true</string>
-    <string name="incomingSMSSummary">Light up CAT Clutch on incoming text message</string>
+    <string name="incomingSMSSummary">Display notification icon only for incoming text messages</string>
     
     <string name="displayIncomingSMS">Display Incoming Text Message</string>    
     <string name="pref_displayIncomingSMS">pref_displayIncomingSMS</string>
     <string name="displayIncomingSMSDefault">false</string>
-    <string name="displayIncomingSMSSummary">Display incoming text message</string>
+    <string name="displayIncomingSMSSummary">Display the actual text for incoming text messages</string>
     
     <string name="displayClock">Display Time</string>    
     <string name="pref_displayClock">pref_displayClock</string>
     <string name="displayClockDefault">false</string>
     <string name="displayClockSummary">Display Time on CAT Clutch</string>
+    
+    <string name="selected_textColor">selected_textColor</string>
+    <string name="textColor">Text Display Color</string>
+    <string name="textColorSummary">Choose the color to display your text messages on the CAT Clutch</string>    
+    <string name="dialogTitletextColor">Text Display Color</string>
+    <string name="textColor_default_value">0</string>   
     
   
    

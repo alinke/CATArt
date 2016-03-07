@@ -464,6 +464,8 @@ public class MainActivity extends IOIOActivity implements OnItemClickListener, O
 	
 	private boolean AutoSelectPanel_ = true;
 	
+	private int textColor_ = 1;
+	
 	
 	/*this next set of code is for the APK expansion downloader service, 
 	we need this because APK's in Android can only be 50 MB and
@@ -538,7 +540,7 @@ public class MainActivity extends IOIOActivity implements OnItemClickListener, O
 	private int fontSizeValue = 26;
 	
 	private static int ColorWheel;
-	private static Paint paint;
+	public static Paint paint;
 	private Typeface tf;
 	private static String scrollingText; //used for scrolling text
 	private static Rect bounds;
@@ -561,6 +563,9 @@ public class MainActivity extends IOIOActivity implements OnItemClickListener, O
 	private String prefScrollSpeed_;
 	private int fontSizeStepper = 8;
 	private int prefFontSizeNum;
+	private int HotPink_;
+	public int Gold_;
+	private Resources res ;
     
     private void setState(int newState) {
         if (mState != newState) {
@@ -896,11 +901,17 @@ public class MainActivity extends IOIOActivity implements OnItemClickListener, O
 	            Log.v(tag, e.getMessage());
 	        }
 	        
+	        ////******* Scrolling Text Code **********
+		      
+		      bounds = new Rect();
+		      paint = new Paint();
+
+	      	  selectedFont = Typeface.create("Arial",Typeface.NORMAL); 
+	        
 	        //******** preferences code
 	        resources = this.getResources();
 	        setPreferences();
 	        //***************************
-	      
 	      
 	     targetScreenResolution = getResources().getDisplayMetrics().widthPixels;
 	     //showToast(String.valueOf(targetScreenResolution));
@@ -924,16 +935,6 @@ public class MainActivity extends IOIOActivity implements OnItemClickListener, O
 	    // start call detector service 
 	     startService(callDetectorIntent);
 	     
-	     
-	    // gridview.setBackgroundColor(Color.WHITE);
-	    // gridview.setVerticalSpacing(3);
-	    // gridview.setHorizontalSpacing(3);
-	     
-	     //note samsung gs4 and gs4 is 1080 width
-	     //nexus4 is 800
-	  
-	    // gridview.setFastScrollEnabled(true);  //with this one, we're getting a CRASH
-	     
 	      gridview.setKeepScreenOn(false);
 	      gifView = (GifView) findViewById(R.id.gifView); //gifview takes care of the gif decoding
 	      gifView.setGif(R.drawable.zzzblank);  //code will crash if a dummy gif is not loaded initially
@@ -942,24 +943,7 @@ public class MainActivity extends IOIOActivity implements OnItemClickListener, O
 	      
 	      blackFrame_ = BitmapFactory.decodeResource(getResources(), R.drawable.black_frame); 
 	      
-	      ////******* Scrolling Text Code **********
-	      
-	      bounds = new Rect();
-	      paint = new Paint();
-	        
-	     /* if (prefColor != 333333) {   //let's set the last color from prefs
-	    		ColorWheel = prefColor;
-	    		paint.setColor(prefColor); 
-	      } 
-	      else {
-	    		ColorWheel = Color.GREEN;
-	        	paint.setColor(ColorWheel);
-	      }*/
-	      
-	      ColorWheel = Color.GREEN;
-      	  paint.setColor(ColorWheel);
-      	  selectedFont = Typeface.create("Arial",Typeface.NORMAL); 
-      	  
+	  	  
       	/* int prefFontSizeNum = Integer.parseInt(prefFontSize.toString());
          prefFontSizeNum = ((int)Math.round(prefFontSizeNum/stepSize))*stepSize + fontSizeStepper;
 		 paint.setTextSize(prefFontSizeNum);*/
@@ -1086,49 +1070,6 @@ public class MainActivity extends IOIOActivity implements OnItemClickListener, O
         
         
 	}
-	
-	 private void resetScrolling() {
-	    	
-	    	if (scrollingtextTimer_ != null) {
-	    		scrollingtextTimer_.cancel();
-	    	}
-	    	
-	    	
-	    	 paint.setColor(ColorWheel); //let's get the color the user has specified from the color wheel widget
-	        // scrollingText = "word to the mutha";
-	     	 paint.getTextBounds(scrollingText, 0, scrollingText.length(), bounds);
-	     	 yCenter = (KIND.height / 2) + ((bounds.height())/2 + yOffset);
-	     	 messageWidth = bounds.width(); 
-	        // showToast(Integer.toString(messageWidth));
-	      	
-	       if (messageWidth < KIND.width) { //then it means we don't need to scroll
-	       	   
-	    	   
-	    	   x = 0;
-	    	   try {
-						pixel.writeMessageToPixel(x, scrollingText, paint, yCenter);
-					} catch (ConnectionLostException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					} //let's write the text
-	          }
-	       
-	       else {
-		    	 //x = 0; //having this works one scrolling sequence but then the next one doesn't come
-		       		x=KIND.width *2 ; //like this so the scrolling start at the edge
-		       		//scrollingtextTimer_.cancel();
-		       		paint.setColor(ColorWheel); //let's get the color the user has specified from the color wheel widget
-		       	    scrollingText = "word to the mutha";
-		            paint.getTextBounds(scrollingText, 0, scrollingText.length(), bounds);
-		       		yCenter = (KIND.height / 2) + ((bounds.height())/2 + yOffset);
-		    	    scrollingtextTimer_ = new ScrollingTextTimer (100000,scrollSpeedValue);
-			 		scrollingtextTimer_.start();
-	       }
-	    	
-	    	
-	    	//scrollingtextTimer_ = new ScrollingTextTimer (100000,scrollSpeedValue);  //scrollSpeedValue was changed, we hard code at 100
-	 		//scrollingtextTimer_.start();
-	    }
 	 
 	 public static void scrollText(final String ScrollTextString, boolean writeMode) 
 	 
@@ -1137,11 +1078,13 @@ public class MainActivity extends IOIOActivity implements OnItemClickListener, O
 		 scrollingText = ScrollTextString;
 		 //let's kill any running timers
 		 
-		 stopTimers();
+		stopTimers();
  	            	 
-    	paint.setColor(ColorWheel); //let's get the color the user has specified from the color wheel widget
+    	//paint.setColor(ColorWheel); //let's get the color the user has specified from the color wheel widget
     	paint.getTextBounds(scrollingText, 0, scrollingText.length(), bounds);
-    	yCenter = (KIND.height / 2) + ((bounds.height())/2 + yOffset);
+    	//yCenter = ((KIND.height/2) + (bounds.height())/2);
+    	//yCenter =  (int) (KIND.height - Math.abs(bounds.exactCenterY())); //this new equation seems to center things vertically like they should be
+    	yCenter = (KIND.height/2 + Math.abs(bounds.height())/2) - Math.abs(bounds.bottom);
     	messageWidth = bounds.width(); 
     	
         if (messageWidth < KIND.width) { //then it means we don't need to scroll 
@@ -1156,11 +1099,12 @@ public class MainActivity extends IOIOActivity implements OnItemClickListener, O
 				} //let's write the text
 			*/	
             
-            originalImage = Bitmap.createBitmap( KIND.width * 2,  KIND.height* 2, Bitmap.Config.RGB_565);  //let's create the image we need
+            originalImage = Bitmap.createBitmap( KIND.width,  KIND.height, Bitmap.Config.RGB_565);  //let's create the image we need , used to be *2
  	    	Canvas canvas = new Canvas(originalImage); 
+ 	    	
  	    	canvas.drawText(scrollingText, x, yCenter, paint);
  		    //canvasBitmap = Bitmap.createBitmap(KIND.width, KIND.height, Config.RGB_565); 
- 		    canvasBitmap = Bitmap.createBitmap(32, 16, Config.RGB_565); 
+ 		    canvasBitmap = Bitmap.createBitmap(KIND.width, KIND.height, Config.RGB_565); 
  		    canvas = new Canvas(canvasBitmap);
  		   	canvas.drawBitmap(originalImage, 0, 0, null);
  		    ByteBuffer buffer = ByteBuffer.allocate(KIND.width * KIND.height *2); //Create a new buffer
@@ -5363,6 +5307,11 @@ public class AsyncRefreshArt extends AsyncTask<Void, String, Void> {
 	    	        resources.getString(R.string.selected_matrix),
 	    	        resources.getString(R.string.matrix_default_value))); 
 	     
+	     textColor_ = Integer.valueOf(prefs.getString(  
+	    	        resources.getString(R.string.selected_textColor),
+	    	        resources.getString(R.string.textColor_default_value))); 
+	     
+	     
 	     gridScale = Integer.valueOf(prefs.getString(   //size of the image grid, higher number is more columns
 	    	        resources.getString(R.string.gridSize),
 	    	        resources.getString(R.string.gridSizeDefault)));
@@ -5397,6 +5346,41 @@ public class AsyncRefreshArt extends AsyncTask<Void, String, Void> {
 	    	        resources.getString(R.string.fps_override),
 	    	        resources.getString(R.string.FPSOverrideDefault))); */
 	    //this wasn't adding any value so removed it
+ 	 
+	     
+	     Resources res = getResources();
+	     
+	     
+	     switch (textColor_) {  //get this from the preferences
+	     case 0:
+	    	 paint.setColor(res.getColor(R.color.DeepPink)); 
+	    	 break;
+	     case 1:
+	    	 paint.setColor(res.getColor(R.color.Gold));  
+	    	 break;
+	     case 2:
+	    	 paint.setColor(res.getColor(R.color.Fuchsia)); 
+	    	 break;
+	     case 3:
+	    	 paint.setColor(res.getColor(R.color.MintCream)); 
+	    	 break;
+	     case 4:
+	    	 paint.setColor(res.getColor(R.color.DarkSeaGreen)); 
+	    	 break;
+	     case 5:
+	    	 paint.setColor(res.getColor(R.color.MidnightBlue)); 
+	    	 break;
+	     case 6:
+	    	 paint.setColor(res.getColor(R.color.Teal)); 
+	    	 break;
+	     case 7:
+	    	 paint.setColor(res.getColor(R.color.DarkRed)); 
+	    	 break;
+	     default:	    		 
+	    	 paint.setColor(res.getColor(R.color.DeepPink)); 
+	     }
+	     
+	     
 	     
 	     FPSOverride_ = 0; //not using, maybe we add this back later
 	     

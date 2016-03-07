@@ -76,6 +76,30 @@
     <item>3</item>
 </string-array>
 
+<string-array name="color_options">
+    <item>Deep Pink</item>
+    <item>Gold</item>
+    <item>Fuchsia</item>
+    <item>Mint Cream</item>
+    <item>Mint Green</item>
+    <item>Midnight Blue</item>
+    <item>Teal</item>
+    <item>Fire Brick</item>
+</string-array>
+	
+<string-array name="color_values">
+    <item>0</item>
+    <item>1</item>
+    <item>2</item>
+    <item>3</item>
+    <item>4</item>
+    <item>5</item>
+    <item>6</item>
+    <item>7</item>
+</string-array>
+
+
+
 
 </resources>
 
