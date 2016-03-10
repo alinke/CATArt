@@ -563,8 +563,6 @@ public class MainActivity extends IOIOActivity implements OnItemClickListener, O
 	private String prefScrollSpeed_;
 	private int fontSizeStepper = 8;
 	private int prefFontSizeNum;
-	private int HotPink_;
-	public int Gold_;
 	private Resources res ;
     
     private void setState(int newState) {
