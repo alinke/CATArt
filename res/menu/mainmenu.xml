@@ -83,3 +83,4 @@ android:icon="@drawable/ic_menu_database"
 /> had to remove this as it was causing a crash on Android 4.x-->
 
 </menu>
+
