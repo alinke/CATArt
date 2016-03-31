@@ -177,6 +177,8 @@ import com.google.android.vending.expansion.downloader.IDownloaderClient;
 import com.google.android.vending.expansion.downloader.IDownloaderService;
 import com.google.android.vending.expansion.downloader.IStub;
 
+import com.google.android.apps.analytics.GoogleAnalyticsTracker;
+
 //import android.widget.PopupMenu.OnMenuItemClickListener; //decided not to use this because does not work on Android Gingerbread
 //import com.ledpixelart.piledriver.AsyncTaskFavoriteCopyGIFs;
 
@@ -564,6 +566,7 @@ public class MainActivity extends IOIOActivity implements OnItemClickListener, O
 	private int fontSizeStepper = 8;
 	private int prefFontSizeNum;
 	private Resources res ;
+	private GoogleAnalyticsTracker tracker;
     
     private void setState(int newState) {
         if (mState != newState) {
@@ -911,7 +914,9 @@ public class MainActivity extends IOIOActivity implements OnItemClickListener, O
 	        setPreferences();
 	        //***************************
 	      
-	     targetScreenResolution = getResources().getDisplayMetrics().widthPixels;
+	      
+	        
+	      targetScreenResolution = getResources().getDisplayMetrics().widthPixels;
 	     //showToast(String.valueOf(targetScreenResolution));
 	     
 	     //****new gridview and adapter code 
@@ -993,6 +998,15 @@ public class MainActivity extends IOIOActivity implements OnItemClickListener, O
  		
  		context = getApplicationContext();
  		baseContext = getBaseContext();
+ 		
+ 		  //******* Google Analytics Tracking Code *******  
+        tracker = GoogleAnalyticsTracker.getInstance();
+        //Start the tracker, updating to Google every 30 seconds:1
+        //tracker.start("UA-75813302-1", 30, context);
+        //Track some usage (screens and dialogs map well to pageviews):
+        //tracker.trackPageView("/MainActivity");
+        //**********************************************
+     
  		
  		//TO DO add a preerence to disable this
  		/*  gestureDetector = new GestureDetector(new MyGestureDetector());
@@ -5748,6 +5762,12 @@ public class AsyncRefreshArt extends AsyncTask<Void, String, Void> {
   			  matrix_ = ioio_.openRgbLedMatrix(KIND);
   	  		  matrix_.frame(frame_); //stream "select image" text to PIXEL
   		   }
+  		   
+  		  
+  		   ///****** Google Analytics Tracking Code *****////
+  		   tracker.start("UA-75813302-1", 30, context);
+          //Track some usage (screens and dialogs map well to pageviews):
+          tracker.trackPageView("/MainActivity");
  			
   		   appAlreadyStarted = 1; 
   			
