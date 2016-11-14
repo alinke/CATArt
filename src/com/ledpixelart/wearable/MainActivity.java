@@ -78,6 +78,7 @@ import ioio.lib.util.IOIOLooper;
 import ioio.lib.util.android.IOIOActivity;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.ListActivity;
 import android.app.PendingIntent;
 import android.app.ProgressDialog;
@@ -146,6 +147,7 @@ import android.widget.AdapterView.OnItemLongClickListener;
 import android.graphics.Matrix;
 import android.graphics.Bitmap.Config;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.ColorDrawable;
 import android.app.ProgressDialog;
 import android.bluetooth.BluetoothAdapter;
 
@@ -872,6 +874,10 @@ public class MainActivity extends IOIOActivity implements OnItemClickListener, O
 	      display = ((WindowManager) getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
 	      
 	      
+	      
+	      
+	      
+	      
 	     //**** was added to due intermittent crashes http://stackoverflow.com/questions/24343563/avoiding-rejectedexecutionexception-in-android-4-4-when-app-uses-list 
 	      try {
 			AsyncTask.class.getMethod("setDefaultExecutor", Executor.class).invoke(null, AsyncTask.SERIAL_EXECUTOR);
@@ -976,14 +982,20 @@ public class MainActivity extends IOIOActivity implements OnItemClickListener, O
         	// use this to announce new features in future apps
             // the code below will display a popup
 
-            String whatsNewTitle = getResources().getString(R.string.whatsNewTitle);
+           /* ******** OLD WELCOME SCREEN ******************
+            * 
+            * String whatsNewTitle = getResources().getString(R.string.whatsNewTitle);
             String whatsNewText = getResources().getString(R.string.whatsNewText);
             new AlertDialog.Builder(this).setIcon(R.drawable.ic_action_event).setTitle(whatsNewTitle).setMessage(whatsNewText).setPositiveButton(
                     R.string.OKText, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             dialog.dismiss();
                         }
-                    }).show();
+                    }).show();*/
+        	
+        	
+        	showCoachMarks();
+        	
             editor = prefs.edit();
             editor.putBoolean(welcomeScreenShownPref, true);
             editor.commit(); // Very important to save the preference
@@ -1082,6 +1094,25 @@ public class MainActivity extends IOIOActivity implements OnItemClickListener, O
         
         
 	}
+	
+	private void showCoachMarks() {  
+	
+	final Dialog dialog = new Dialog(this);
+      dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+      dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+      dialog.setContentView(R.layout.coach_mark);
+      dialog.setCanceledOnTouchOutside(true);
+      //for dismissing anywhere you touch
+      View masterView = dialog.findViewById(R.id.coach_mark_master_view);
+      masterView.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View view) {
+              dialog.dismiss();
+          }
+      });
+      dialog.show();
+      
+	}  
 	 
 	 public static void scrollText(final String ScrollTextString, boolean writeMode) 
 	 
@@ -4726,6 +4757,17 @@ public class UnFavoriteGIFMoveAsync extends AsyncTask<Void, Integer, Void>{
 	 	    	AlertDialog.Builder alert=new AlertDialog.Builder(this);
 	 	      	alert.setTitle(getResources().getString(R.string.setupInstructionsStringTitle)).setIcon(R.drawable.icon).setMessage(getResources().getString(R.string.setupInstructionsString)).setNeutralButton(getResources().getString(R.string.OKText), null).show();
 	 	   }
+	      
+	      if (item.getItemId() == R.id.bluetoothMenu_instructions) {
+	 	    	AlertDialog.Builder alert=new AlertDialog.Builder(this);
+	 	      	alert.setTitle(getResources().getString(R.string.bluetoothSetupInstructionsStringTitle)).setIcon(R.drawable.icon).setMessage(getResources().getString(R.string.bluetoothSetupInstructionsString)).setNeutralButton(getResources().getString(R.string.OKText), null).show();
+	 	   }
+	      
+	      if (item.getItemId() == R.id.overlay_help) {
+	    	  showCoachMarks();
+	 	   }
+	      
+	      
 	      
 	    /*  if (item.getItemId() == R.id.start_SlideShow) {
 	    	  

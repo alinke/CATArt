@@ -3,8 +3,8 @@
   <string name="app_name">CAT</string>
 
     <string name="oneTimeSetupString">One Time Setup: Copying art to your local memory</string> 
-    <string name="bluetoothPairingString">Did you Bluetooth pair to your CAT Device? Pairing PIN: 0000"</string>   
-    <string name="menu_camera_title">Camera Pic to CAT Device</string>  
+    <string name="bluetoothPairingString">Did you Bluetooth pair to your CAT Clutch? Pairing PIN: 0000"</string>   
+    <string name="menu_camera_title">Camera Pic to CAT Clutch</string>  
     <string name="menu_about_title">About</string> 
     <string name="menu_about_summary">Designed by Creative Arts and Technology LLC\n\nWeb: catclutch.com</string>
     <string name="versionString">App Version</string> 
@@ -14,22 +14,28 @@
     <string name="HardwareVersionString">Hardware Version</string> 
    
     <string name="menu_instructions_title">Instructions</string>
-    <string name="setupInstructionsString">Bluetooth pair to the CAT Device using PIN 0000\n\nLong tap to write to CAT Device for stand alone operation.\n\nAdd your own art by sharing to this app from email, gallery, and other apps.\n\nUse the menu to create a slide show of favorites.</string>
+    <string name="setupInstructionsString">Bluetooth pair to your CAT Clutch using PIN 0000\n\nLong press desired animation to set permanently.\n\nAdd your own art by sharing to this app from email, gallery, and other apps.\n\nUse the menu to create a slide show of favorites.\n\nCharge your CAT Clutch for 3 hours using a micro USB charger, your CAT Clutch will last 10-12 hours\n\nUse inside USB port to charge your phone.\n\nDo not spill liquids or drop your CAT Clutch</string>
     <string name="setupInstructionsStringTitle">Instructions</string>   
+    
+    <string name="bluetoothMenu_instructions_title">Bluetooth Troubleshooting</string>
+    <string name="bluetoothSetupInstructionsString">If after successful Bluetooth pairing (using pin 0000), this app does not find your CAT Clutch. Kill this app and launch again.\n\nIf still not found, then turn off and on Bluetooth in Android settings and Bluetooth pair again using pin 0000.</string>
+    <string name="bluetoothSetupInstructionsStringTitle">Bluetooth Troubleshooting</string> 
+    
+    <string name="overlaymenu_instructions_title">Quick Help</string>
      
-    <string name="prefTitle">CAT Device Settings</string>
+    <string name="prefTitle">CAT Clutch Settings</string>
     <string name="menu_prefs_title">Settings</string>
-    <string name="prefSummary">CAT Device Settings</string>
+    <string name="prefSummary">CAT Clutch Settings</string>
     
     <string name="scanAll">Show All Album Pics</string>
     <string name="pref_scanAll_default">false</string>
     <string name="scanAllSummary">Only animations in the pixel/GIFs directory of your SD card will be displayed. Checking this box displays all SD card pictures.</string>
         
     <string name="whatsNewTitle">Welcome</string>   
-    <string name="whatsNewText">First Bluetooth pair to your CAT Device using PIN 0000\n\nTap any image to display or long tap to write\n\nThe last item you write will continue to play after your phone has been disconnected</string>   
+    <string name="whatsNewText">First Bluetooth pair to your CAT Clutch using PIN 0000\n\nTap any image to display or long tap to write\n\nThe last item you write will continue to play after your phone has been disconnected</string>   
     
     <string name="OKText">OK</string>   
-    <string name="notFoundString">CAT. Device Not Found</string>   
+    <string name="notFoundString">CAT Clutch Not Found</string>   
     
     <string name="menu_getART_title">Pixel Art on the Web</string>   
     <string name="menu_pixelJoint_title">Pixel Art on the Web</string>   
@@ -37,12 +43,12 @@
     <string name="artURL2">pixeljoint.com</string> 
     <string name="artURL3">pixeljoint.com</string> 
     
-    <string name="menu_btPair_title">Bluetooth Pair CAT Device | PIN 0000</string>   
+    <string name="menu_btPair_title">Bluetooth Pair CAT Clutch | PIN 0000</string>   
    
     <string name="selected_matrix">selected_matrix</string>
-    <string name="matrix">CAT Device Model</string>
+    <string name="matrix">CAT Clutch Model</string>
     <string name="matrixSummary">Choose between the rectangle or square model</string>    
-    <string name="dialogTitleMatrix">CAT Device Model</string>
+    <string name="dialogTitleMatrix">CAT Clutch Model</string>
     <string name="matrix_default_value">1</string>   
     
     <string name="slideshowGIFFPS_key">slideshowGIFFPS_key</string>
@@ -58,7 +64,7 @@
     <string name="FPSOverrideDefault">0</string>  
     
     <string name="bluetooth_pair">Blueooth Pairing</string>
-    <string name="bluetooth_pairSummary">Shortcut to the Bluetooth settings screen. Pair to CAT Device using PIN: 0000</string>
+    <string name="bluetooth_pairSummary">Shortcut to the Bluetooth settings screen. Pair to CAT Clutch using PIN: 0000</string>
     
     <string name="slideShowtitle">Slide Show Settings</string>
     <string name="slideShowtitleSummary">Slide Show Settings</string>
@@ -74,7 +80,7 @@
     <string name="kioskMode">Kiosk Mode</string>    
     <string name="pref_kioskMode">pref_kioskMode</string>
     <string name="pref_kioskModeDefault">false</string>    
-    <string name="kioskModeSummary">Writing to CAT Device is disabled</string>
+    <string name="kioskModeSummary">Writing to CAT Clutch is disabled</string>
     
     <string name="gifonly">GIFs Only</string>    
     <string name="pref_gifonly">pref_gifonly</string>
@@ -163,7 +169,7 @@
     <string name="LongTapActionTitle">Select Action</string> 
     <string name="LongTapActionWrite">Write</string> 
    
-    <string name="cannotWriteMsg">Sorry, writing is only supported on CAT Device V2 and above, streaming instead&#8230;</string> 
+    <string name="cannotWriteMsg">Sorry, writing is only supported on CAT Clutch V2 and above, streaming instead&#8230;</string> 
     <string name="FavoriteText">Favorite</string> 
     <string name="UnFavoriteText">Unfavorite</string> 
     <string name="MovingUp">Moving Up</string> 
@@ -174,23 +180,23 @@
     <string name="Cancel">Cancel</string> 
     <string name="DoNotInterrupt">Please do not interrupt or leave this screen.</string> 
     <string name="oneTimeDecode">One time decode in process, just a moment&#8230;</string> 
-    <string name="writingPIXEL">Writing to CAT Device</string> 
-    <string name="PIXELNotFound">CAT device not found, did you Bluetooth pair?</string> 
-    <string name="NoWritinginKiosk">Writing to your CAT Device is not supported in Kiosk mode</string> 
+    <string name="writingPIXEL">Writing to CAT Clutch</string> 
+    <string name="PIXELNotFound">CAT Clutch not found, did you Bluetooth pair?</string> 
+    <string name="NoWritinginKiosk">Writing to your CAT Clutch is not supported in Kiosk mode</string> 
     <string name="ProcessingFavorite">Processing Favorite</string> 
     <string name="LEDPanelChanged">LED panel model was changed, decoding again&#8230;</string> 
     <string name="NoFavoritesMarked">You have not marked any favorites, long tap to mark a favorite</string> 
-    <string name="WritingOnlyOnV2">Sorry, writing is only supported on CAT Device V2 and higher</string>
+    <string name="WritingOnlyOnV2">Sorry, writing is only supported on CAT Clutch V2 and higher</string>
    
     <string name="menu_createSlideShow_title">Write All Images Slide Show</string>
     <string name="menu_createSlideShowFavs_title">Write Favorite Images Slide Show</string>
    
-    <string name="BluetoothPairInstructionsV1">Bluetooth Pair to CAT Device using PIN: 4545</string> 
-    <string name="BluetoothPairInstructionsV2">Bluetooth Pair to CAT Device using PIN: 0000</string> 
+    <string name="BluetoothPairInstructionsV1">Bluetooth Pair to CAT Clutch using PIN: 4545</string> 
+    <string name="BluetoothPairInstructionsV2">Bluetooth Pair to CAT Clutch using PIN: 0000</string> 
    
     <string name="PreparingSlideshow">Preparing Slide Show</string> 
-    <string name="WritingSlideshow">Writing Slide Show to CAT Device</string> 
-    <string name="WritingSlideshowGIF">Writing Slide Show GIF to CAT Device</string> 
+    <string name="WritingSlideshow">Writing Slide Show to CAT Clutch</string> 
+    <string name="WritingSlideshowGIF">Writing Slide Show GIF to CAT Clutch</string> 
 
     <string name="menu_createSlideShowGIFFavs_title">Write Favorite GIFs Slide Show</string> 
     
@@ -206,7 +212,7 @@
     <string name="text_button_cancel">Cancel</string>
     <string name="text_button_cancel_verify">Cancel Verification</string>
     
-    <string name="AutoSelectPanel">Auto Select CAT Device</string>    
+    <string name="AutoSelectPanel">Auto Select CAT Clutch</string>    
     <string name="pref_AutoSelectPanel">pref_AutoSelectPanel</string>
     <string name="pref_AutoSelectPanelDefault">true</string>
     <string name="AutoSelectPanelSummary">Turn this off if you want to manually select the LED panel</string>
@@ -223,7 +229,7 @@
     <string name="gridSizeDefault">1</string>  
     
     <string name="unsupportedPanel">Incompatible LED Panel</string>    
-    <string name="unsupportedPanelMsg">Very Sorry&#8230;\n\nThe LED Panel you have selected is not compatible with your CAT Device board.\n\nYou would need to upgrade to a CAT Device v2.5 or higher board to support this LED panel\n\nPlease now change the LED panel to a supported one.</string>
+    <string name="unsupportedPanelMsg">Very Sorry&#8230;\n\nThe LED Panel you have selected is not compatible with your CAT Clutch board.\n\nYou would need to upgrade to a CAT Device v2.5 or higher board to support this LED panel\n\nPlease now change the LED panel to a supported one.</string>
     
     <string name="newFileAdded">New File Added</string>    
     <string name="newFilesAdded">New Files Added</string>   
