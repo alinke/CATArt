@@ -89,6 +89,7 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.AssetFileDescriptor;
 import android.content.res.AssetManager;
@@ -874,10 +875,6 @@ public class MainActivity extends IOIOActivity implements OnItemClickListener, O
 	      display = ((WindowManager) getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
 	      
 	      
-	      
-	      
-	      
-	      
 	     //**** was added to due intermittent crashes http://stackoverflow.com/questions/24343563/avoiding-rejectedexecutionexception-in-android-4-4-when-app-uses-list 
 	      try {
 			AsyncTask.class.getMethod("setDefaultExecutor", Executor.class).invoke(null, AsyncTask.SERIAL_EXECUTOR);
@@ -920,7 +917,16 @@ public class MainActivity extends IOIOActivity implements OnItemClickListener, O
 	        setPreferences();
 	        //***************************
 	      
-	      
+	        if (debug_) {
+	        
+		        if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_BLUETOOTH_LE)) {
+		            Toast.makeText(this, "BLE NOT supported on this device", Toast.LENGTH_SHORT).show();
+		            //finish();
+		        }
+		        else {
+		        	 Toast.makeText(this, "BLE IS supported on this device", Toast.LENGTH_SHORT).show();
+		        }
+	       }
 	        
 	      targetScreenResolution = getResources().getDisplayMetrics().widthPixels;
 	     //showToast(String.valueOf(targetScreenResolution));
@@ -3094,7 +3100,8 @@ public boolean onItemLongClick(final AdapterView<?> parent, View v, final int po
 						        		if (kioskMode_ == false) {
 							        		try {
 							        			matrix_.interactive();
-												matrix_.writeFile(1); //since it's only one frame , doesn't matter what fps is
+												//matrix_.writeFile(1); //since it's only one frame , doesn't matter what fps is
+												matrix_.writeFile(100); //since it's only one frame , doesn't matter what fps is
 						    		        	WriteImagetoMatrix();
 						    		        	matrix_.playFile();
 											} catch (ConnectionLostException e) {
