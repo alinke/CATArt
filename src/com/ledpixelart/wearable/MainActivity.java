@@ -917,7 +917,7 @@ public class MainActivity extends IOIOActivity implements OnItemClickListener, O
 	        setPreferences();
 	        //***************************
 	      
-	        if (debug_) {
+	      /*  if (debug_) {
 	        
 		        if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_BLUETOOTH_LE)) {
 		            Toast.makeText(this, "BLE NOT supported on this device", Toast.LENGTH_SHORT).show();
@@ -926,7 +926,7 @@ public class MainActivity extends IOIOActivity implements OnItemClickListener, O
 		        else {
 		        	 Toast.makeText(this, "BLE IS supported on this device", Toast.LENGTH_SHORT).show();
 		        }
-	       }
+	       }*/
 	        
 	      targetScreenResolution = getResources().getDisplayMetrics().widthPixels;
 	     //showToast(String.valueOf(targetScreenResolution));
@@ -2669,13 +2669,13 @@ private void copyGIF64Source() {
         super.onDestroy();
        // mThread.close();
        
-        final GridView grid = gridview;
+       /* final GridView grid = gridview;  //TO DO this was causing a crash so commenting out to see
         final int count = grid.getChildCount();
         ImageView v = null;
         for (int i = 0; i < count; i++) {
             v = (ImageView) grid.getChildAt(i);
             ((BitmapDrawable) v.getDrawable()).setCallback(null);
-        }
+        }*/
         
         if (matrix_ == null) {  
     	     if (connectTimer != null) connectTimer.cancel();  //if user closes the program, need to kill this timer or we'll get a crash
