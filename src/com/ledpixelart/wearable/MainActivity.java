@@ -250,7 +250,7 @@ public class MainActivity extends IOIOActivity implements OnItemClickListener, O
 	static ioio.lib.api.RgbLedMatrix matrix_;
 	public static ioio.lib.api.RgbLedMatrix.Matrix KIND = ioio.lib.api.RgbLedMatrix.Matrix.SEEEDSTUDIO_32x32; //v2;  //have to do it this way because there is a matrix library conflict
 	private static android.graphics.Matrix matrix2;
-    private static final String TAG = "PixelAnimations";	
+    private static final String TAG = "catclutch";	
 	private static short[] frame_;
   	public static final Bitmap.Config FAST_BITMAP_CONFIG = Bitmap.Config.RGB_565;
   	public static byte[] BitmapBytes;
@@ -273,7 +273,7 @@ public class MainActivity extends IOIOActivity implements OnItemClickListener, O
 	private String app_ver;	
 	private static  int matrix_model;
 	private final String tag = "";	
-	private final String LOG_TAG = "PixelAnimations";
+	private final String LOG_TAG = "catclutch";
 	public static String imagePath;
 	private static int resizedFlag = 0;
 	
@@ -1237,6 +1237,8 @@ public class MainActivity extends IOIOActivity implements OnItemClickListener, O
 	 protected void onResume() {
          super.onResume();
          
+         //showToast("on resume");
+         
          this.prefs = PreferenceManager.getDefaultSharedPreferences(this);
          updatePrefs();
      }
@@ -1305,6 +1307,10 @@ public class MainActivity extends IOIOActivity implements OnItemClickListener, O
 	   			  String newFile = userGIFPath + newfilename_no_extension + "." + uriExtension;
 	   			  //to do think about adding a check if the file name is already there
 	   			  
+	   			  if (newfilename_no_extension.equals("false")) {  //added this as a hack because in previous versions, there would have already been a false.gif , false.txt, and false.rgb565 and since we didn't clean those up in previous code, avoiding that mistake here
+	   				newfilename_no_extension ="false1";
+	   			  }
+	   			
 	   			  File newGIFfile = new File(userGIFPath + newfilename_no_extension + "." + uriExtension);
 	   			  if (newGIFfile.exists()) {  //if the file is already there, then let's come up with a random filename, had to add this here because attachments in gmail always have the filename of false
 	   				  //newFile = userGIFPath + newfilename_no_extension + "1" + "." + uriExtension;
@@ -1429,6 +1435,10 @@ public class MainActivity extends IOIOActivity implements OnItemClickListener, O
 	    	   			  String newFile = userGIFPath + newfilename_no_extension + "." + uriExtension;
 	    	   			  //to do think about adding a check if the file name is already there
 	    	   			  
+	    	   			  if (newfilename_no_extension.equals("false")) {  //added this as a hack because in previous versions, there would have already been a false.gif , false.txt, and false.rgb565 and since we didn't clean those up in previous code, avoiding that mistake here
+	    	   				newfilename_no_extension ="false1";
+	    	   			  }
+	    	   			  
 	    	   			  File newGIFfile = new File(userGIFPath + newfilename_no_extension + "." + uriExtension);
 	    	   			  if (newGIFfile.exists()) {  //if the file is already there, then let's come up with a random filename, had to add this here because attachments in gmail always have the filename of false
 	    	   				  String uuid = UUID.randomUUID().toString();
@@ -1464,6 +1474,10 @@ public class MainActivity extends IOIOActivity implements OnItemClickListener, O
 	    		   			
 	    		   			  String newFile = userPNGPath + newfilename_no_extension + "." + uriExtension;
 	    		   			  //to do think about adding a check if the file name is already there
+	    		   			  
+	    		   			  if (newfilename_no_extension.equals("false")) {  //added this as a hack because in previous versions, there would have already been a false.gif , false.txt, and false.rgb565 and since we didn't clean those up in previous code, avoiding that mistake here
+	    		   				newfilename_no_extension ="false1";
+	    		   			  }
 	    		   			  
 	    		   			  File newPNGfile = new File(userPNGPath + newfilename_no_extension + "." + uriExtension);
 	    		   			  if (newPNGfile.exists()) {  //append to the file if it's already there
@@ -3364,11 +3378,30 @@ public boolean onItemLongClick(final AdapterView<?> parent, View v, final int po
     	                new DialogInterface.OnClickListener() {
     	                public void onClick(DialogInterface dialog, int id) {
     	                	
-    	                	File deleteGIF = new File(originalImagePath);
+    	                	File deleteGIF = new File(originalImagePath);  //example sdcard/CAT/gif16/0data16.png
     						if (deleteGIF.exists()) {
     							 deleteGIF.delete();
     							 LoadGridView(false);
     					  	}
+    						
+    						String CATDir = Pixel.getPixelDir(originalImagePath);  //usergif or userpng or gif16
+    						String fname_no_extension = Pixel.getNameOnly(originalImagePath); //get the name of the select file but without the extension
+    					    
+    						File gifSourcePath = new File(Environment.getExternalStorageDirectory() + "/CAT/" + CATDir + "/gifsource/" + fname_no_extension + ".gif");
+    						if (gifSourcePath.exists()) {
+    							gifSourcePath.delete();
+   							 	//we don't need to update the gridview here, this dir is not used for displaying
+   					  		}
+    						
+    						File decodedTXT = new File(Environment.getExternalStorageDirectory() + "/CAT/" + CATDir + "/decoded/" + fname_no_extension + ".txt");
+    						if (decodedTXT.exists()) {
+    							decodedTXT.delete();
+   					  		}
+    						
+    						File decodedRGB565 = new File(Environment.getExternalStorageDirectory() + "/CAT/" + CATDir + "/decoded/" + fname_no_extension + ".rgb565");
+    						if (decodedRGB565.exists()) {
+    							decodedRGB565.delete();
+   					  		}
     		     	        
     	                    dialog.cancel();
     	                }
@@ -5395,6 +5428,8 @@ public class AsyncRefreshArt extends AsyncTask<Void, String, Void> {
 	  	        resources.getString(R.string.pref_imageDisplayDuration),
 	  	        resources.getString(R.string.imageDisplayDurationDefault)));   
 	     
+	     imageDisplayDuration =  imageDisplayDuration * 4; //this is a hack because the CAT firmware cannot handle 1 for fps, so it was changed to 4 and hence compensated for here
+	     
 	    if (imageDisplayDuration < 1 || imageDisplayDuration > 1000) imageDisplayDuration = 5; //in case someone entered 0
    
 	     
@@ -5499,6 +5534,7 @@ public class AsyncRefreshArt extends AsyncTask<Void, String, Void> {
 	     default:	    		 
 	    	 slideshowGIFFrameDelay = 100;
 	     }
+	    
 	   
 	    /* PIXEL V2 supported panels
 	     I: 32x16 adafruit
@@ -5814,9 +5850,9 @@ public class AsyncRefreshArt extends AsyncTask<Void, String, Void> {
   		   
   		  
   		   ///****** Google Analytics Tracking Code *****////
-  		   tracker.start("UA-75813302-1", 30, context);
+  		 //  tracker.start("UA-75813302-1", 30, context);
           //Track some usage (screens and dialogs map well to pageviews):
-          tracker.trackPageView("/MainActivity");
+        //  tracker.trackPageView("/MainActivity");
  			
   		   appAlreadyStarted = 1; 
   			
@@ -5844,7 +5880,7 @@ public class AsyncRefreshArt extends AsyncTask<Void, String, Void> {
   		
   		@Override
 		public void disconnected() {   			
-  			Log.i(LOG_TAG, "PIXEL disconnected");
+  			Log.i(LOG_TAG, "CAT Clutch disconnected");
 			if (debug_ == true) {  			
 	  			showToast("Bluetooth Disconnected");
   			}	
@@ -6614,7 +6650,7 @@ public class AsyncRefreshArt extends AsyncTask<Void, String, Void> {
 				}
 				
 				String filetag = String.valueOf(SlideShowLength*imageDisplayDuration + SlideShowLength*pauseBetweenImagesDuration) + "," + String.valueOf(1000) + "," + String.valueOf(currentResolution);  //our format is number of frames,delay 72,60,32 equals 72 frames, 60 ms time delay, 32 resolution   resolution is 16 for 16x32 or 32 for 32x32 led matrix, we need this in case the user changes the resolution in the app, then we'd need to catch this mismatch and re-decode
-		        
+			
 		        String exStorageState = Environment.getExternalStorageState();
 		     	if (Environment.MEDIA_MOUNTED.equals(exStorageState)){
 		     		try {
@@ -6713,7 +6749,8 @@ public class AsyncRefreshArt extends AsyncTask<Void, String, Void> {
 		   try {
 			gridview.setKeepScreenOn(true);  //need to prevent screen from turning off / power savings during the write
 			matrix_.interactive();
-			matrix_.writeFile(1); //duhhh!!!! I had this at a 1000, no wonder it was going so fast, writeFile is frames per second as opposed to the ms frame delay which is used in the .txt file, 1 fps is the slowest we can go
+			matrix_.writeFile(4); //duhhh!!!! I had this at a 1000, no wonder it was going so fast, writeFile is frames per second as opposed to the ms frame delay which is used in the .txt file, 1 fps is the slowest we can go
+			                      //as opposed to the pixel firmware, the CAT Code doesn't like a value less than 4
 			} catch (ConnectionLostException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
